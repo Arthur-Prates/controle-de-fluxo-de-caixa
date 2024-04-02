@@ -1,4 +1,5 @@
-function carregarConteudo(controle){
+$('.cpf').mask('000.000.000-00');
+function carregarConteudo(controle) {
     fetch('controle.php', {
         method: 'POST', headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -7,41 +8,12 @@ function carregarConteudo(controle){
         .then(response => response.text())
         .then(data => {
 
-            document.getElementById('show').innerHTML= data;
+            document.getElementById('show').innerHTML = data;
         })
         .catch(error => {
             console.error('Erro na requisição:', error);
         });
 }
-
-function mudarTema() {
-    var tema = document.body.classList;
-
-    var btnMudarTema = document.getElementById('btnMudarTema')
-
-
-    if (tema == 'temaBranco') {
-        document.body.setAttribute('data-bs-theme', 'dark');
-        btnMudarTema.innerHTML = '<span class="mdi mdi-moon-waning-crescent"></span>'
-        document.body.classList.add('temaPreto');
-        document.body.classList.remove('temaBranco');
-        // document.body.classList.add('bg-black');
-        btnMudarTema.classList.remove('btn-outline-warning');
-        btnMudarTema.classList.add('btn-outline-secondary');
-        // div.innerHTML = `${tema}`;
-    } else if (tema == 'temaPreto') {
-        btnMudarTema.innerHTML = ' <span class="mdi mdi-weather-sunny"></span>'
-        document.body.setAttribute('data-bs-theme', 'light')
-        document.body.classList.add('temaBranco');
-        document.body.classList.remove('temaPreto');
-        btnMudarTema.classList.remove('btn-outline-secondary');
-        btnMudarTema.classList.add('btn-outline-warning');
-
-
-    }
-}
-
-$('.cpf').mask('000.000.000-00');
 
 
 var options = {
@@ -68,7 +40,66 @@ function mostrarsenha() {
         btnShowPass.classList.replace('bi-eye', 'bi-eye-slash');
     }
 }
+function redireciona(link) {
+    window.location.href = link + '.php';
 
+}
+
+function fazerLogin() {
+    var email = document.getElementById("email").value;
+    var senha = document.getElementById("senha").value;
+    var alertlog = document.getElementById("alertlog");
+
+    if (email === "") {
+        alertlog.style.display = "block";
+        alertlog.innerHTML =
+            "email não digitado.";
+        return;
+    } else if (senha === "") {
+        alertlog.style.display = "block";
+        alertlog.innerHTML =
+            "Senha não digitada.";
+        return;
+    } else if (senha.length < 8) {
+        alertlog.style.display = "block";
+        alertlog.innerHTML = "Mínimo de 8 digitos.";
+        return;
+    } else {
+        alertlog.style.display = "none";
+    }
+    fetch("login.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body:
+            "email=" +
+            encodeURIComponent(email) +
+            "&senha=" +
+            encodeURIComponent(senha),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+          
+            if (data.success) {
+                setTimeout(function () {
+                    window.location.href = "dashboard.php";
+                }, 2000);
+                //alert(data.message);
+                alertlog.classList.remove("erroBonito");
+                alertlog.classList.add("acertoBonito");
+                alertlog.innerHTML = data.message;
+                alertlog.style.display = "block";
+            } else {
+                alertlog.style.display = "block";
+                alertlog.innerHTML = data.message;
+            }
+           
+        })
+        // .catch((error) => {
+        //     console.error("Erro na requisição", error);
+        // });
+}
 
 function abrirModalJsProprietario(id, inID, nomeProp, inNomeProp, dataTime, nomeModal, abrirModal = 'A', botao, addEditDel, inFocus, inFocusValue, formulario) {
     const formDados = document.getElementById(`${formulario}`)

@@ -6,9 +6,9 @@ include_once("func/funcoes.php");
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 // echo json_encode($dados);
 
-$cpf = $dados['cpf'];
+$email = $dados['email'];
 $senha = $dados['senha'];
-$retornoValidar = verificarSenhaCriptografada('*', 'adm', 'cpf', $cpf, 'senha', $senha, 'ativo', 'A');
+$retornoValidar = verificarSenhaCriptografada('*', 'adm', 'email', $email, 'senha', $senha, 'ativo', 'A');
 
 if ($retornoValidar) {
     if ($retornoValidar == 'usuario') {
@@ -18,8 +18,7 @@ if ($retornoValidar) {
     } else {
         $_SESSION['idadm'] = $retornoValidar->idadm;
         $_SESSION['nome'] = $retornoValidar->nomeAdm;
-        $_SESSION['cpfAdm'] = $retornoValidar->cpf;
-        $aa = $_SESSION['cpfAdm'];
+        $_SESSION['email'] = $retornoValidar->email;
         echo json_encode(['success' => true, 'message' => "Logado com sucesso!"]);
     }
 } else {
