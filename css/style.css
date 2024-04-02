@@ -10,16 +10,29 @@ body {
     margin: 0;
     padding: 0;
 }
-
-
-
-/*#btnMudarTema {*/
-/*    background-color: #0f0f0f !important;*/
-/*    color: #FFC107 !important;*/
-/*    padding: 5px 15px;*/
-/*    border-radius: 10px;*/
-/*    border: #FFC107 1px solid;*/
-/*}*/
+.bodylogin {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-image: url('./img/funlogin3.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vh;  
+    height: 100%;
+    background-position: center;
+  
+  }
+.erroBonito{
+    color: #ffffff !important;
+    background-color: rgba(126, 0, 0, 0.55) !important;
+    border: #940000 1px solid !important;
+  }
+  .acertoBonito{
+    color: #ffffff !important;
+    background-color: rgba(27, 126, 0, 0.55)!important;
+    border: #259400 1px solid !important;
+  }
 
 .form {
     display: flex;
@@ -117,24 +130,4 @@ body {
     margin: 5px 0;
 }
 
-.btn {
-    margin-top: 10px;
-    width: 100%;
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
-    gap: 10px;
-    border: 1px solid #ededef;
-    background-color: white;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-}
-
-.btn:hover {
-    border: 1px solid #2d79f3;
-;
-}
 

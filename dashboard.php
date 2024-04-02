@@ -2,6 +2,13 @@
 include_once("config/constantes.php");
 include_once("config/conexao.php");
 include_once("func/funcoes.php");
+if ($_SESSION['idadm']) {
+        $idUsuario = $_SESSION['idadm'];
+        //echo '<p class="text-white">'.$idUsuario.'</p>';
+    } else {
+        session_destroy();
+        header('location: index.php?error=404');
+    }
 ?>
 
 <!doctype html>
@@ -33,7 +40,7 @@ include_once('navbar.php');
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
-<script src="./js/script.js"></script>
+<script src="./js/controle.js"></script>
 
 </body>
 
