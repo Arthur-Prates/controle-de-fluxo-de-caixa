@@ -114,6 +114,27 @@ function listarTabelaInnerJoinTriploOrdenada($campos, $tabelaA1, $tabelaB2, $tab
     $conn = null;
 }
 
+function listarTabelaInnerJoinQuadruploOrdenada($campos, $tabelaA1, $tabelaB2, $tabelaD3, $tabelaE4,$innerJoin1, $innerJoin2 ,$innerJoin3, $ordem, $tipoOrdem)
+{
+    $conn = conectar();
+    try {
+        $conn->beginTransaction();
+        $sqlLista = $conn->prepare("SELECT $campos FROM $tabelaA1 a INNER JOIN $tabelaB2 b ON a.$innerJoin1 = b.$innerJoin1 INNER JOIN $tabelaD3 d ON a.$innerJoin2 = d.$innerJoin2  INNER JOIN $tabelaE4 e ON a.$innerJoin3 = e.$innerJoin3 ORDER BY $ordem $tipoOrdem");
+        $sqlLista->execute();
+        $conn->commit();
+        if ($sqlLista->rowCount() > 0) {
+            return $sqlLista->fetchAll(PDO::FETCH_OBJ);
+        }
+        return False;
+
+    } catch (PDOException $e) {
+        echo 'Exception -> ';
+        return ($e->getMessage());
+        $conn->rollback();
+    }
+    $conn = null;
+}
+
 function listarTabelaInnerJoinTriploWhere($campos, $tabelaA1, $tabelaB2, $tabelaD3, $idA1, $idB2, $idA3, $idD4, $quando, $idquando, $ordem, $tipoOrdem)
 {
     $conn = conectar();
@@ -254,6 +275,35 @@ function insert6Item($tabela, $dados, $novosDados1, $novosDados2, $novosDados3, 
     $conn = null;
 }
 
+function insert7Item($tabela, $dados, $novosDados1, $novosDados2, $novosDados3, $novosDados4, $novosDados5, $novosDados6,$novosDados7,$novosDados8,$novosDados9,$novosDados10)
+{
+    $conn = conectar();
+    try {
+        $conn->beginTransaction();
+        $sqlLista = $conn->prepare("INSERT INTO $tabela($dados) VALUES (?,?,?,?,?,?,?,?,?,?)");
+        $sqlLista->bindValue(1, $novosDados1, PDO::PARAM_STR);
+        $sqlLista->bindValue(2, $novosDados2, PDO::PARAM_STR);
+        $sqlLista->bindValue(3, $novosDados3, PDO::PARAM_STR);
+        $sqlLista->bindValue(4, $novosDados4, PDO::PARAM_STR);
+        $sqlLista->bindValue(5, $novosDados5, PDO::PARAM_STR);
+        $sqlLista->bindValue(6, $novosDados6, PDO::PARAM_STR);
+        $sqlLista->bindValue(7, $novosDados7, PDO::PARAM_STR);
+        $sqlLista->bindValue(8, $novosDados8, PDO::PARAM_STR);
+        $sqlLista->bindValue(9, $novosDados9, PDO::PARAM_STR);
+        $sqlLista->bindValue(10, $novosDados10, PDO::PARAM_STR);
+        $sqlLista->execute();
+        $conn->commit();
+        if ($sqlLista->rowCount() > 0) {
+            return $sqlLista->fetchAll(PDO::FETCH_OBJ);
+        }
+        return False;
+    } catch (PDOException $e) {
+        echo 'Exception -> ';
+        $conn->rollback();
+        return ($e->getMessage());
+    }
+    $conn = null;
+}
 
 function deletarCadastro($tabela, $NomeDoCampoId, $id)
 {
