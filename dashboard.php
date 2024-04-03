@@ -35,7 +35,7 @@ include_once('navbar.php');
         <div class="col-lg-2 col-md-12 col-12 bg-black text-white navLateral ">
             <h3 class="text-center mt-5 mb-4"><?php echo 'Olá ' . $_SESSION['nome'] ?></h3>
             <hr>
-            <div class="fs-3 text-center">
+            <div class="fs-5 text-center">
                 <a class="aNavLateral" href="#" onclick="carregarConteudo('listarCliente')">
                     <div class="mt-2 btnNavLateral">Clientes</div>
                 </a>
