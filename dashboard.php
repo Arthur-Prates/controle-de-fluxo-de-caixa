@@ -31,7 +31,18 @@ include_once('navbar.php');
 ?>
 
 <div class="container-fluid mt-5">
-
+    <div class="row">
+        <div class="col-lg-2 col-md-12 col-12">
+            <div class="fs-3 text-center">
+                <div class="mt-2">Clientes</div>
+                <div class="mt-2">Serviços</div>
+                <div class="mt-2">Atendentes</div>
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-12 col-12">
+            <div id="show" name="show"></div>
+        </div>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
