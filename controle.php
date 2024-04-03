@@ -6,6 +6,9 @@ include_once("func/funcoes.php");
 $controle = filter_input(INPUT_POST, 'controle', FILTER_SANITIZE_STRING);
 if (!empty($controle) && isset($controle)) {
     switch ($controle) {
+        case 'listarPedido':
+            include_once('listarPedido.php');
+            break;
         case 'listarCliente':
             include_once('listarCliente.php');
             break;
@@ -14,6 +17,9 @@ if (!empty($controle) && isset($controle)) {
             break;
         case 'listarAtendente':
             include_once('listarAtendente.php');
+            break;
+        case 'addPedido':
+            include_once('addPedido.php');
             break;
     }
 

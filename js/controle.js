@@ -27,20 +27,23 @@ function carregarConteudo(controle) {
 }
 
 
-
 function mostrarsenha() {
     var inputPass = document.getElementById('senha');
-    var btnShowPass = document.getElementById('btn-senha');
+    var olhoFechado = document.getElementById('olhoFechado');
+    var olhoAberto = document.getElementById('olhoAberto');
 
     if (inputPass.type === 'password') {
         inputPass.setAttribute('type', 'text');
-        btnShowPass.classList.replace('bi-eye-slash', 'bi-eye');
-    }
-    else {
+        olhoAberto.style.display = 'block';
+        olhoFechado.style.display = 'none';
+    } else {
         inputPass.setAttribute('type', 'password');
-        btnShowPass.classList.replace('bi-eye', 'bi-eye-slash');
+
+        olhoFechado.style.display = 'block';
+        olhoAberto.style.display = 'none';
     }
 }
+
 function redireciona(link) {
     window.location.href = link + '.php';
 
@@ -81,7 +84,7 @@ function fazerLogin() {
     })
         .then((response) => response.json())
         .then((data) => {
-          
+
             if (data.success) {
                 setTimeout(function () {
                     window.location.href = "dashboard.php";
@@ -95,29 +98,21 @@ function fazerLogin() {
                 alertlog.style.display = "block";
                 alertlog.innerHTML = data.message;
             }
-           
+
         })
-        // .catch((error) => {
-        //     console.error("Erro na requisição", error);
-        // });
+    // .catch((error) => {
+    //     console.error("Erro na requisição", error);
+    // });
 }
 
-function abrirModalJsProprietario(id, inID, nomeProp, inNomeProp, dataTime, nomeModal, abrirModal = 'A', botao, addEditDel, inFocus, inFocusValue, formulario) {
-    const formDados = document.getElementById(`${formulario}`)
+function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, idServico, inIdServico, idValor, inIdValor, idDataInicio, inIdDataInicio, idDataFinal, inIdDataFinal, idtipoPag, inIdtipoPag, idNumParc, inIdNumParc, dataTime, nomeModal, abrirModal = 'A', botao, addEditDel, formulario) {
 
+    const formDados = document.getElementById(`${formulario}`)
     var botoes = document.getElementById(`${botao}`);
     const ModalInstacia = new bootstrap.Modal(document.getElementById(`${nomeModal}`))
     if (abrirModal === 'A') {
         ModalInstacia.show();
 
-        const inputFocar = document.getElementById(`${inFocus}`);
-        if (inFocusValue !== 'nao') {
-            inputFocar.value = inFocusValue;
-            setTimeout(function () {
-                inputFocar.focus();
-
-            }, 500);
-        }
         const inputid = document.getElementById(`${inID}`);
         if (inID !== 'nao') {
             inputid.value = id;
@@ -141,34 +136,35 @@ function abrirModalJsProprietario(id, inID, nomeProp, inNomeProp, dataTime, nome
             })
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data)
                     if (data.success) {
-                        carregarConteudo("listarProprietarios");
+                        // carregarConteudo("listarPedido");
 
-                        switch (addEditDel) {
-                            case 'addProprietario':
-                                addOuEditSucesso('Você', 'success', 'adicionou')
-                                break;
-                            case 'editProprietario':
-                                addOuEditSucesso('Você', 'info', 'editou')
-                                botoes.disabled = false;
-                                break;
-                            case 'deleteProprietario':
-                                addOuEditSucesso('Você', 'success', 'deletou')
-                                botoes.disabled = false;
-                                break;
-                        }
+                        // switch (addEditDel) {
+                        //     case 'addProprietario':
+                        //         addOuEditSucesso('Você', 'success', 'adicionou')
+                        //         break;
+                        //     case 'editProprietario':
+                        //         addOuEditSucesso('Você', 'info', 'editou')
+                        //         botoes.disabled = false;
+                        //         break;
+                        //     case 'deleteProprietario':
+                        //         addOuEditSucesso('Você', 'success', 'deletou')
+                        //         botoes.disabled = false;
+                        //         break;
+                        // }
                         ModalInstacia.hide();
                     } else {
-                        addErro()
+                        // addErro()
                         ModalInstacia.hide();
-                        carregarConteudo("listarProprietarios");
+                        carregarConteudo("listarPedido");
                     }
                 })
                 .catch(error => {
                     botoes.disabled = false;
                     ModalInstacia.hide();
-                    addErro()
-                    carregarConteudo("listarProprietarios");
+                    // addErro()
+                    carregarConteudo("listarPedido");
                     console.error('Erro na requisição:', error);
                 });
 
