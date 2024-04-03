@@ -1,15 +1,12 @@
 <?php
-echo 'atende';
+//echo 'atende';
 ?>
 
-<?php
-echo 'cliente';
-
-?>
 
 <div class="card">
-    <div class="card-header fs-4">
-        <i class="bi bi-person"></i> Atendentes
+    <div class="card-header fs-4 d-flex justify-content-between align-items-center">
+        <div><i class="bi bi-person"></i> Atendentes</div>
+        <button class="btn btn-success btn-sm">Cadastrar</button>
     </div>
     <div class="card-body">
         <table class="table">
