@@ -1,15 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 .roboto-black {
     font-family: "Roboto", sans-serif;
     font-weight: 900;
     font-style: normal;
 }
+
 body {
     font-family: "Roboto", sans-serif;
     font-style: normal;
     margin: 0;
     padding: 0;
 }
+
 .bodylogin {
     /* display: flex; */
     justify-content: center;
@@ -18,21 +21,23 @@ body {
     /* background-image: url('./img/funlogin3.jpg'); */
     background-size: cover;
     background-repeat: no-repeat;
-    width: 100vh;  
+    width: 100vh;
     height: 100%;
     background-position: center;
-  
-  }
-.erroBonito{
+
+}
+
+.erroBonito {
     color: #ffffff !important;
     background-color: rgba(126, 0, 0, 0.55) !important;
     border: #940000 1px solid !important;
-  }
-  .acertoBonito{
+}
+
+.acertoBonito {
     color: #ffffff !important;
-    background-color: rgba(27, 126, 0, 0.55)!important;
+    background-color: rgba(27, 126, 0, 0.55) !important;
     border: #259400 1px solid !important;
-  }
+}
 
 .form {
     display: flex;
@@ -130,4 +135,19 @@ body {
     margin: 5px 0;
 }
 
-
+.navLateral {
+    min-height: 100vh !important;
+}
+.aNavLateral{
+    text-decoration: none;
+    color: white;
+}
+.btnNavLateral:hover {
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    font-weight: 600;
+}
