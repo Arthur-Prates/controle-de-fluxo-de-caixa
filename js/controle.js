@@ -1,4 +1,15 @@
 $('.cpf').mask('000.000.000-00');
+var options = {
+    onKeyPress: function (tell, e, field, options) {
+        var masks = ['(00) 0 0000-0000', '(00) 0000-0000'];
+        var mask = (tell.length < 15) ? masks[1] : masks[0];
+        $('.telefoneBR').mask(mask, options);
+    }
+};
+
+$('.telefoneBR').mask('(00) 0 0000-0000', options);
+
+
 function carregarConteudo(controle) {
     fetch('controle.php', {
         method: 'POST', headers: {
@@ -15,16 +26,6 @@ function carregarConteudo(controle) {
         });
 }
 
-
-var options = {
-    onKeyPress: function (tell, e, field, options) {
-        var masks = ['(00) 0 0000-0000', '(00) 0000-0000'];
-        var mask = (tell.length < 15) ? masks[1] : masks[0];
-        $('.telefoneBR').mask(mask, options);
-    }
-};
-
-$('.telefoneBR').mask('(00) 0 0000-0000', options);
 
 
 function mostrarsenha() {
@@ -130,9 +131,6 @@ function abrirModalJsProprietario(id, inID, nomeProp, inNomeProp, dataTime, nome
 
             const form = event.target;
             const formData = new FormData(form);
-            if (inID !== 'nao') {
-                formData.append('id', `${id}`)
-            }
             if (dataTime !== 'nao') {
                 formData.append('dataTime', `${dataTime}`)
             }

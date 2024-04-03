@@ -3,12 +3,12 @@ include_once("config/constantes.php");
 include_once("config/conexao.php");
 include_once("func/funcoes.php");
 if ($_SESSION['idadm']) {
-        $idUsuario = $_SESSION['idadm'];
-        //echo '<p class="text-white">'.$idUsuario.'</p>';
-    } else {
-        session_destroy();
-        header('location: index.php?error=404');
-    }
+    $idUsuario = $_SESSION['idadm'];
+    //echo '<p class="text-white">'.$idUsuario.'</p>';
+} else {
+    session_destroy();
+    header('location: index.php?error=404');
+}
 ?>
 
 <!doctype html>
@@ -30,17 +30,28 @@ if ($_SESSION['idadm']) {
 include_once('navbar.php');
 ?>
 
-<div class="container-fluid mt-5">
+<div class="container-fluid ">
     <div class="row">
-        <div class="col-lg-2 col-md-12 col-12">
+        <div class="col-lg-2 col-md-12 col-12 bg-black text-white navLateral ">
+            <h3 class="text-center mt-5 mb-4"><?php echo 'Olá ' . $_SESSION['nome'] ?></h3>
+            <hr>
             <div class="fs-3 text-center">
-                <div class="mt-2">Clientes</div>
-                <div class="mt-2">Serviços</div>
-                <div class="mt-2">Atendentes</div>
+                <a class="aNavLateral" href="#" onclick="carregarConteudo('listarCliente')">
+                    <div class="mt-2 btnNavLateral">Clientes</div>
+                </a>
+                <a class="aNavLateral" href="#" onclick="carregarConteudo('listarServiço')">
+                    <div class="mt-2 btnNavLateral">Serviços</div>
+                </a>
+                <a class="aNavLateral" href="#" onclick="carregarConteudo('listarAtendente')">
+                    <div class="mt-2 btnNavLateral">Atendentes</div>
+                </a>
             </div>
         </div>
-        <div class="col-lg-10 col-md-12 col-12">
-            <div id="show" name="show"></div>
+        <div class="col-lg-10 col-md-12 col-12 ">
+            <div class="container">
+                <div id="show" name="show"></div>
+
+            </div>
         </div>
     </div>
 </div>
