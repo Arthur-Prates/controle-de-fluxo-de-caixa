@@ -1,4 +1,4 @@
-<div class="card mt-5">
+<div class="card mt-3">
     <div class="card-header fs-4 d-flex justify-content-between align-items-center">
         <div><i class="bi bi-book"></i> Pedidos</div>
         <button class="btn btn-success btn-sm" data-bs-toggle="modal"
