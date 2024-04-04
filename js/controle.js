@@ -139,9 +139,26 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
         if (inID !== 'nao') {
             inputid.value = id;
         }
+
         const inValor = document.getElementById(`${inIdValor}`);
         if (inIdValor !== 'nao') {
             inValor.value = idValor;
+            if (document.getElementById('verMaisCliente')) {
+
+                const inIdClient = document.getElementById(`${inIdCliente}`);
+                if (inIdCliente !== 'nao') {
+                    inIdClient.value = idCliente;
+                }
+                const inIdNumParcel = document.getElementById(`${inIdNumParc}`);
+                if (inIdNumParc !== 'nao') {
+                    inIdNumParcel.value = idNumParc+ ' Parcela(s)';
+                }
+
+                const inIdServ = document.getElementById(`${inIdServico}`);
+                if (inIdServico !== 'nao') {
+                    inIdServ.value = idServico;
+                }
+            }
         }
 
         const inDataIN = document.getElementById(`${inIdDataInicio}`);
@@ -340,7 +357,6 @@ function abrirModalJsServico(id, inID, nomeServico, inNomeServico, dataTime, nom
         if (inNomeServico !== 'nao') {
             inputNome.value = nomeServico;
         }
-
 
 
         const submitHandler = function (event) {

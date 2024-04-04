@@ -49,7 +49,10 @@
                         <td><?php echo $atendente; ?></td>
                         <td>
 
-                            <!--                    <Button>Alterar</Button>-->
+                            <Button class="btn btn-info btn-sm text-white" data-bs-toggle="modal"
+                                    onclick="abrirModalJsPedido('nao', 'nao', '<?php echo $nomeCliente; ?>', 'verMaisCliente','nao','nao','<?php echo $nomeServico; ?>', 'verMaisServico','<?php echo $valor; ?>', 'verMaisValor','<?php echo $dataIn; ?>', 'verMaisDataInicio','<?php echo $dataEnd; ?>', 'verMaisDataFinal', '<?php echo $valorEntrada; ?>', 'verMaisentrada', '<?php echo $numeroParcelas; ?>', 'verMaisparcela', 'verMaisPedido','A', 'nao', 'verMaisPedido',  'frmVerMaisPedido')">
+                                Ver Mais
+                            </Button>
                             <Button class="btn btn-primary btn-sm" data-bs-toggle="modal"
                                     onclick="abrirModalJsPedido('<?php echo $idpedido; ?>', 'idEditPedido', '<?php echo $idCliente; ?>', 'editCliente','nao','nao','<?php echo $nomeServico; ?>', 'editServico','<?php echo $valor; ?>', 'editValor','<?php echo $dataIn; ?>', 'editDataInicio','<?php echo $dataEnd; ?>', 'editDataFinal', '<?php echo $valorEntrada; ?>', 'editEntrada', '<?php echo $numeroParcelas; ?>', 'editParcela', 'editPedido','A', 'btnEditPedido', 'editPedido',  'frmEditPedido')">
                                 Alterar
