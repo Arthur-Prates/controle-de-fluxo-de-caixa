@@ -21,6 +21,12 @@ if (!empty($controle) && isset($controle)) {
         case 'addPedido':
             include_once('addPedido.php');
             break;
+        case 'editPedido':
+            include_once('editPedido.php');
+            break;
+        case 'deletePedido':
+            include_once('deletePedido.php');
+            break;
     }
 
 } else {
