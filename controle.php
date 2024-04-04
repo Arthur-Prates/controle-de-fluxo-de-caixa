@@ -27,6 +27,15 @@ if (!empty($controle) && isset($controle)) {
         case 'deletePedido':
             include_once('deletePedido.php');
             break;
+        case 'addCliente';
+            include_once('addCliente.php');
+            break;
+        case 'editCliente';
+            include_once('editCliente.php');
+            break;
+        case 'deleteCliente';
+            include_once('deleteCliente.php');
+            break;
     }
 
 } else {

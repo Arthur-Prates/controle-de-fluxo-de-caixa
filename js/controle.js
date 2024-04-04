@@ -224,3 +224,98 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
     }
 
 }
+
+
+function abrirModalJsCliente(id, inID, nomeCliente, inNomeCliente, contatoCliente, inContatoCliente, emailCliente, inEmailCliente, dataTime, nomeModal, abrirModal = 'A', botao, addEditDel, inFocus, inFocusValue, formulario) {
+    const formDados = document.getElementById(`${formulario}`)
+
+    var botoes = document.getElementById(`${botao}`);
+    const ModalInstacia = new bootstrap.Modal(document.getElementById(`${nomeModal}`))
+    if (abrirModal === 'A') {
+        ModalInstacia.show();
+
+        const inputFocar = document.getElementById(`${inFocus}`);
+        if (inFocusValue !== 'nao') {
+            inputFocar.value = inFocusValue;
+            setTimeout(function () {
+                inputFocar.focus();
+            }, 500);
+        }
+        const inputid = document.getElementById(`${inID}`);
+        if (inID !== 'nao') {
+            inputid.value = id;
+        }
+        const inputNome = document.getElementById(`${inNomeCliente}`);
+        if (inNomeCliente !== 'nao') {
+            inputNome.value = nomeCliente;
+        }
+        const inputContato = document.getElementById(`${inContatoCliente}`);
+        if (inContatoCliente !== 'nao') {
+            inputContato.value = contatoCliente;
+        }
+        const inputEmail = document.getElementById(`${inEmailCliente}`);
+        if (inEmailCliente !== 'nao') {
+            inputEmail.value = emailCliente;
+        }
+
+
+        const submitHandler = function (event) {
+            event.preventDefault();
+            // alert('AQUIIIII')
+            botoes.disabled = true;
+
+            const form = event.target;
+            const formData = new FormData(form);
+            // if (dataTime !== 'nao') {
+            //     formData.append('dataTime', `${dataTime}`)
+            // }
+            formData.append('controle', `${addEditDel}`)
+            fetch('controle.php', {
+                method: 'POST', body: formData,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.success) {
+                        carregarConteudo("listarCliente");
+                        // switch (addEditDel) {
+                        //     case 'addProprietario':
+                        //         addOuEditSucesso('Você', 'success', 'adicionou')
+                        //         break;
+                        //     case 'editProprietario':
+                        //         addOuEditSucesso('Você', 'info', 'editou')
+                        //         botoes.disabled = false;
+                        //         break;
+                        //     case 'deleteProprietario':
+                        //         addOuEditSucesso('Você', 'success', 'deletou')
+                        //         botoes.disabled = false;
+                        //         break;
+                        // }
+                        ModalInstacia.hide();
+                    } else {
+                        // addErro()
+                        ModalInstacia.hide();
+                        carregarConteudo("listarCliente");
+                    }
+                })
+                // .catch(error => {
+                //     botoes.disabled = false;
+                //     ModalInstacia.hide();
+                //     // addErro()
+                //     carregarConteudo("listarCliente");
+                //     console.error('Erro na requisição:', error);
+                // });
+        }
+        formDados.addEventListener('submit', submitHandler);
+
+
+    } else {
+        botoes.disabled = false;
+        ModalInstacia.hide();
+    }
+
+}
+
+function aa (){
+    alert('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+}
