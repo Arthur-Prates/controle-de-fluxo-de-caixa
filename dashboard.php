@@ -76,7 +76,8 @@ include_once('navbar.php');
                 <div class="modal-body">
                     <div>
                         <label for="addNomeServico" class="label-control">Nome do serviço</label>
-                        <input type="text" name="addNomeServico" id="addNomeServico" required="required" class="form-control">
+                        <input type="text" name="addNomeServico" id="addNomeServico" required="required"
+                               class="form-control">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -365,6 +366,73 @@ include_once('navbar.php');
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     <button type="submit" class="btn btn-success" id="btnAddCliente">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal VerMais Pedido -->
+<div class="modal fade" id="verMaisPedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Ver Mais</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" id="frmVerMaisPedido" name="frmVerMaisPedido">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Cliente</h4>
+                            <input type="text" class="form-control text-center" id="verMaisCliente"
+                                   name="verMaisCliente" disabled>
+                        </div>
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Serviço</h4>
+                            <input type="text" class="form-control text-center" id="verMaisServico"
+                                   name="verMaisServico" disabled>
+                        </div>
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Prazo</h4>
+                            <div class="row text-center p-0 m-0">
+                                <div class="col-6 ">
+                                    <input type="date" class="form-control text-center" id="verMaisDataInicio"
+                                           name="verMaisDataInicio" disabled>
+                                    <label for="verMaisDataInicio">Início</label>
+                                </div>
+                                <div class="col-6 ">
+                                    <input type="date" class="form-control text-center" id="verMaisDataFinal"
+                                           name="verMaisDataFinal" disabled>
+                                    <label for="verMaisDataFinal">Final</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Valor</h4>
+                            <input id="verMaisValor" name="verMaisValor" type="text" step="0.010" min="1"
+                                   class="form-control text-center" disabled>
+                        </div>
+
+                        <div class="col-6 mb-3 text-center">
+                            <h4 id='nomeEntrada'>Entrada</h4>
+                            <input name="verMaisentrada" id="verMaisentrada" type="text" step="0.010" min="1"
+                                   class="form-control text-center"
+                                   placeholder="Sem Entrada" disabled>
+                        </div>
+                        <div class="col-6 mb-3 text-center">
+                            <h4 id='nomeEntrada'>Parcelas</h4>
+                            <input type="text" name="verMaisparcela" id="verMaisparcela" class="form-control text-center"
+                                  disabled>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
             </form>
         </div>
