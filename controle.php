@@ -12,7 +12,7 @@ if (!empty($controle) && isset($controle)) {
         case 'listarCliente':
             include_once('listarCliente.php');
             break;
-        case 'listarServiço':
+        case 'listarServico':
             include_once('listarServico.php');
             break;
         case 'listarAtendente':
@@ -35,6 +35,15 @@ if (!empty($controle) && isset($controle)) {
             break;
         case 'deleteCliente';
             include_once('deleteCliente.php');
+            break;
+        case 'addServico';
+            include_once('addServico.php');
+            break;
+        case 'editServico';
+            include_once('editServico.php');
+            break;
+        case 'deleteServico';
+            include_once('deleteServico.php');
             break;
     }
 
