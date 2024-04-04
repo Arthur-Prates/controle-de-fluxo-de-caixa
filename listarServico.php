@@ -28,6 +28,7 @@
             $cont = 1;
             $servicos = listarTabela('*', 'servico');
             foreach ($servicos as $servico) {
+                $id = $servico-> idservico;
                 $nome = $servico->nomeServico;
                 $cadastro = $servico->cadastro;
                 ?>
@@ -37,8 +38,8 @@
                     <td><?php echo $cadastro ?></td>
                     <td>
                         <!--<Button>Alterar</Button>-->
-                        <Button class="btn btn-primary btn-sm">Alterar</Button>
-                        <Button class="btn btn-danger btn-sm">Excluir</Button>
+                        <Button class="btn btn-primary btn-sm" onclick="abrirModalJsServico('<?php echo $id?>', 'idEditServico', '<?php echo $nome; ?>', 'addNomeServico', '<?php echo DATATIMEATUAL ?>', 'editServico', 'A', 'btnEditServico', 'editServico', 'editNomeServico', '', 'frmEditServico')">Alterar</Button>
+                        <Button class="btn btn-danger btn-sm" onclick="abrirModalJsServico('<?php echo $id?>', 'idDeleteServico', 'nao', 'nao', '<?php echo DATATIMEATUAL ?>', 'deleteServico', 'A', 'btnEditServico', 'deleteServico', 'nao', 'nao', 'frmEditServico')">Excluir</Button>
                     </td>
                 </tr>
                 <?php
@@ -76,44 +77,44 @@
 <!--    </div>-->
 <!--</div>-->
 
-<div class="modal fade" id="editServico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar serviço</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="post" name="frmEditServico" id="frmEditServico">
-                <div class="modal-body">
-                    <input type="text" name="idEditServico" id="idEditServico">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Editar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+<!--<div class="modal fade" id="editServico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header bg-primary text-white">-->
+<!--                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar serviço</h1>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <form action="" method="post" name="frmEditServico" id="frmEditServico">-->
+<!--                <div class="modal-body">-->
+<!--                    <input type="text" name="idEditServico" id="idEditServico">-->
+<!--                    ...-->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+<!--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>-->
+<!--                    <button type="button" class="btn btn-primary">Editar</button>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
-<div class="modal fade" id="deleteServico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-danger text-white">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Deletar serviço</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="post" name="frmDeleteServico" id="frmDeleteServico">
-                <div class="modal-body">
-                    <input type="text" name="idDeleteServico" id="idDeleteServico">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-danger">Deletar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+<!--<div class="modal fade" id="deleteServico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header bg-danger text-white">-->
+<!--                <h1 class="modal-title fs-5" id="exampleModalLabel">Deletar serviço</h1>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <form action="" method="post" name="frmDeleteServico" id="frmDeleteServico">-->
+<!--                <div class="modal-body">-->
+<!--                    <input type="text" name="idDeleteServico" id="idDeleteServico">-->
+<!--                    ...-->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+<!--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>-->
+<!--                    <button type="submit" class="btn btn-danger">Deletar</button>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

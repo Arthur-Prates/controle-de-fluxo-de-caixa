@@ -81,12 +81,58 @@ include_once('navbar.php');
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-success" id="btnAddServico">Cadastrar</button>
+                    <button type="submit" class="btn btn-success" id="btnAddServico">Cadastrar</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+<!--Modal edição de serviço-->
+<div class="modal fade" id="editServico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar serviço</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="post" name="frmEditServico" id="frmEditServico">
+                <div class="modal-body">
+                    <input type="text" name="idEditServico" id="idEditServico">
+                    <div>
+                        <label for="editNomeServico" class="label-control">Nome do serviço</label>
+                        <input type="text" name="editNomeServico" id="editNomeServico" required="required" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary" id="btnEditServico">Editar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--Modal delete Servico-->
+<div class="modal fade" id="deleteServico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Deletar serviço</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="post" name="frmDeleteServico" id="frmDeleteServico">
+                <div class="modal-body">
+                    <input type="text" name="idDeleteServico" id="idDeleteServico">
+                    Tem certeza?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-danger">Deletar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 <!-- Modal Fazer Pedido -->
 <div class="modal fade" id="fazerPedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -360,7 +406,6 @@ include_once('navbar.php');
                         <input type="email" name="addEmailCliente" id="addEmailCliente" required="required"
                                class="form-control">
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -423,7 +468,6 @@ include_once('navbar.php');
                     <div class="alert alert-danger" role="alert">
                         Tem certeza?
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>

@@ -382,13 +382,13 @@ function abrirModalJsServico(id, inID, nomeServico, inNomeServico, dataTime, nom
                         carregarConteudo("listarServico");
                     }
                 })
-                .catch(error => {
-                    botoes.disabled = false;
-                    ModalInstacia.hide();
-                    // addErro()
-                    carregarConteudo("listarServico");
-                    console.error('Erro na requisição:', error);
-                });
+                // .catch(error => {
+                //     botoes.disabled = false;
+                //     ModalInstacia.hide();
+                //     // addErro()
+                //     carregarConteudo("listarServico");
+                //     console.error('Erro na requisição:', error);
+                // });
         }
         formDados.addEventListener('submit', submitHandler);
 
