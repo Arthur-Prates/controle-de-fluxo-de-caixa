@@ -45,6 +45,15 @@ if (!empty($controle) && isset($controle)) {
         case 'deleteServico';
             include_once('deleteServico.php');
             break;
+        case 'addAtendente';
+            include_once('addAtendente.php');
+            break;
+        case 'editAtendente';
+            include_once('editAtendente.php');
+            break;
+        case 'deleteAtendente';
+            include_once('deleteAtendente.php');
+            break;
     }
 
 } else {
