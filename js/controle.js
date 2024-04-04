@@ -105,20 +105,67 @@ function fazerLogin() {
     // });
 }
 
-function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, idServico, inIdServico, idValor, inIdValor, idDataInicio, inIdDataInicio, idDataFinal, inIdDataFinal, idtipoPag, inIdtipoPag, idNumParc, inIdNumParc, dataTime, nomeModal, abrirModal = 'A', botao, addEditDel, formulario) {
+if (document.getElementById('tipoEditVista')) {
+    const tipoEditVista = document.getElementById('tipoEditVista');
+    const tipoEditPrazo = document.getElementById('tipoEditPrazo');
+    const editParc = document.getElementById('editParcela');
+    const editEntra = document.getElementById('editEntrada');
+    const nomeEditEntra = document.getElementById('nomeEditEntrada');
+    tipoEditPrazo.addEventListener('click', function () {
+        editParc.style.display = 'block';
+        nomeEditEntra.style.display = 'block';
+        editEntra.style.display = 'block';
+        editEntra.value = editEntraValue;
+    })
+    tipoEditVista.addEventListener('click', function () {
+        editParc.style.display = 'none';
+        nomeEditEntra.style.display = 'none';
+        editEntra.style.display = 'none';
+        editEntra.value = '';
+
+    })
+}
+
+
+function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, idServico, inIdServico, idValor, inIdValor, idDataInicio, inIdDataInicio, idDataFinal, inIdDataFinal, idEntrada, inIdEntrada, idNumParc, inIdNumParc, nomeModal, abrirModal = 'A', botao, addEditDel, formulario) {
 
     const formDados = document.getElementById(`${formulario}`)
     var botoes = document.getElementById(`${botao}`);
     const ModalInstacia = new bootstrap.Modal(document.getElementById(`${nomeModal}`))
     if (abrirModal === 'A') {
-        ModalInstacia.show();
+        ModalInstacia.show()
 
         const inputid = document.getElementById(`${inID}`);
         if (inID !== 'nao') {
             inputid.value = id;
         }
+        const inValor = document.getElementById(`${inIdValor}`);
+        if (inIdValor !== 'nao') {
+            inValor.value = idValor;
+        }
+
+        const inDataIN = document.getElementById(`${inIdDataInicio}`);
+        if (inIdDataInicio !== 'nao') {
+            inDataIN.value = idDataInicio;
+        }
+        const inDataEND = document.getElementById(`${inIdDataFinal}`);
+        if (inIdDataFinal !== 'nao') {
+            inDataEND.value = idDataFinal;
+        }
+        const Entrada = document.getElementById(`${inIdEntrada}`);
+        if (inIdEntrada !== 'nao' && inIdEntrada !== 0 && inIdEntrada !== '') {
+            Entrada.value = idEntrada;
+            const tipoEditPrazo = document.getElementById('tipoEditPrazo');
+            const editParc = document.getElementById('editParcela');
+            const editEntra = document.getElementById('editEntrada');
+            const nomeEditEntra = document.getElementById('nomeEditEntrada');
+            editParc.style.display = 'block';
+            nomeEditEntra.style.display = 'block';
+            editEntra.style.display = 'block';
+            tipoEditPrazo.checked = true;
 
 
+        }
         const submitHandler = function (event) {
             event.preventDefault();
 
@@ -126,10 +173,8 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
 
             const form = event.target;
             const formData = new FormData(form);
-            if (dataTime !== 'nao') {
-                formData.append('dataTime', `${dataTime}`)
-            }
             formData.append('controle', `${addEditDel}`)
+            formData.append('id', `${id}`)
 
             fetch('controle.php', {
                 method: 'POST', body: formData,
@@ -138,7 +183,7 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
                 .then(data => {
                     console.log(data)
                     if (data.success) {
-                        // carregarConteudo("listarPedido");
+                        carregarConteudo("listarPedido");
 
                         // switch (addEditDel) {
                         //     case 'addProprietario':

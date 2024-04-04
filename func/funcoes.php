@@ -125,7 +125,7 @@ function listarTabelaInnerJoinQuadruploOrdenada($campos, $tabelaA1, $tabelaB2, $
         if ($sqlLista->rowCount() > 0) {
             return $sqlLista->fetchAll(PDO::FETCH_OBJ);
         }
-        return False;
+        return 'Vazio';
 
     } catch (PDOException $e) {
         echo 'Exception -> ';
@@ -275,7 +275,7 @@ function insert6Item($tabela, $dados, $novosDados1, $novosDados2, $novosDados3, 
     $conn = null;
 }
 
-function insert7Item($tabela, $dados, $novosDados1, $novosDados2, $novosDados3, $novosDados4, $novosDados5, $novosDados6,$novosDados7,$novosDados8,$novosDados9,$novosDados10)
+function insert10Item($tabela, $dados, $novosDados1, $novosDados2, $novosDados3, $novosDados4, $novosDados5, $novosDados6,$novosDados7,$novosDados8,$novosDados9,$novosDados10)
 {
     $conn = conectar();
     try {
@@ -436,6 +436,37 @@ function alterar5Item($tabela, $campo1, $campo2, $campo3, $campo4, $campo5, $val
         $sqlLista->bindValue(3, $valor3, PDO::PARAM_STR);
         $sqlLista->bindValue(4, $valor4, PDO::PARAM_STR);
         $sqlLista->bindValue(5, $valor5, PDO::PARAM_STR);
+        $sqlLista->execute();
+        $conn->commit();
+        if ($sqlLista->rowCount() > 0) {
+            return $sqlLista->fetchAll(PDO::FETCH_OBJ);
+        }
+        return False;
+
+    } catch (PDOException $e) {
+        echo 'Exception -> ';
+        return ($e->getMessage());
+        $conn->rollback();
+    };
+    $conn = null;
+}
+
+function alterar9Item($tabela, $campo1, $campo2, $campo3, $campo4, $campo5,$campo6,$campo7,$campo8,$campo9, $valor, $valor2, $valor3, $valor4, $valor5,$valor6,$valor7,$valor8,$valor9, $identificar, $id)
+{
+    $conn = conectar();
+    try {
+        $conn->beginTransaction();
+        $sqlLista = $conn->prepare("UPDATE $tabela SET $campo1 = ?, $campo2 = ?, $campo3 = ?,$campo4 = ?,$campo5 = ?,$campo6 = ?,$campo7 = ?,$campo8 = ?,$campo9 = ?WHERE  $identificar = $id ;");
+
+        $sqlLista->bindValue(1, $valor, PDO::PARAM_STR);
+        $sqlLista->bindValue(2, $valor2, PDO::PARAM_STR);
+        $sqlLista->bindValue(3, $valor3, PDO::PARAM_STR);
+        $sqlLista->bindValue(4, $valor4, PDO::PARAM_STR);
+        $sqlLista->bindValue(5, $valor5, PDO::PARAM_STR);
+        $sqlLista->bindValue(6, $valor6, PDO::PARAM_STR);
+        $sqlLista->bindValue(7, $valor7, PDO::PARAM_STR);
+        $sqlLista->bindValue(8, $valor8, PDO::PARAM_STR);
+        $sqlLista->bindValue(9, $valor9, PDO::PARAM_STR);
         $sqlLista->execute();
         $conn->commit();
         if ($sqlLista->rowCount() > 0) {

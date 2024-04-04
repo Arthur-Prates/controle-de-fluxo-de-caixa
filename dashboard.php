@@ -52,9 +52,9 @@ include_once('navbar.php');
         <div class="col-lg-10 col-md-12 col-12 ">
             <div class="container">
                 <div id="show" name="show">
-                  <?php
-                  include_once('listarPedido.php');
-                  ?>
+                    <?php
+                    include_once('listarPedido.php');
+                    ?>
 
 
                 </div>
@@ -64,7 +64,7 @@ include_once('navbar.php');
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal Fazer Pedido -->
 <div class="modal fade" id="fazerPedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered  modal-lg">
         <div class="modal-content">
@@ -77,7 +77,8 @@ include_once('navbar.php');
                     <div class="row">
                         <div class="col-6 mb-3 text-center">
                             <h4>Cliente</h4>
-                            <select id="addCliente" name="addCliente" class="form-select" aria-label="Default select example">
+                            <select id="addCliente" name="addCliente" class="form-select"
+                                    aria-label="Default select example">
                                 <?php
                                 $pessoa = listarTabelaOrdenada('idcliente,nomeCliente', 'cliente', 'nomeCliente', 'ASC');
                                 foreach ($pessoa as $cliente) {
@@ -92,7 +93,8 @@ include_once('navbar.php');
                         </div>
                         <div class="col-6 mb-3 text-center">
                             <h4>Serviço</h4>
-                            <select id="addServico" name="addServico" class="form-select" aria-label="Default select example">
+                            <select id="addServico" name="addServico" class="form-select"
+                                    aria-label="Default select example">
                                 <?php
                                 $pessoa = listarTabelaOrdenada('idservico,nomeServico', 'servico', 'nomeServico', 'ASC');
                                 foreach ($pessoa as $servico) {
@@ -109,12 +111,14 @@ include_once('navbar.php');
                             <h4>Prazo</h4>
                             <div class="row text-center p-0 m-0">
                                 <div class="col-6 ">
-                                    <input type="date" class="form-control text-center" id="addDataInicio" name="addDataInicio"
+                                    <input type="date" class="form-control text-center" id="addDataInicio"
+                                           name="addDataInicio"
                                            value="<?php echo DATAATUAL ?>">
                                     <label for="dataInicio">Início</label>
                                 </div>
                                 <div class="col-6 ">
-                                    <input type="date" class="form-control text-center" id="addDataFinal" name="addDataFinal"
+                                    <input type="date" class="form-control text-center" id="addDataFinal"
+                                           name="addDataFinal"
                                            value="<?php echo DATAATUAL ?>">
                                     <label for="dataFinal">Final</label>
                                 </div>
@@ -122,7 +126,8 @@ include_once('navbar.php');
                         </div>
                         <div class="col-6 mb-3 text-center">
                             <h4>Valor</h4>
-                            <input id="addValor" name="addValor" type="number" step="0.010" min="1" class="form-control text-center"
+                            <input id="addValor" name="addValor" type="number" step="0.010" min="1"
+                                   class="form-control text-center"
                                    placeholder="Digite seu valor">
                         </div>
 
@@ -138,10 +143,12 @@ include_once('navbar.php');
                             </label>
                         </div>
                         <div class="col-6 mb-3 text-center">
-                            <h4 id='nomeEntrada' style="display: none">Entrada</h4 >
-                            <input name="entrada" id="entrada" type="number" step="0.010" min="1" class="form-control text-center"
+                            <h4 id='nomeEntrada' style="display: none">Entrada</h4>
+                            <input name="entrada" id="entrada" type="number" step="0.010" min="1"
+                                   class="form-control text-center"
                                    placeholder="Digite sua entrada" style="display: none">
-                            <select  name="parcela" id="parcela" class="form-select form-select-sm mt-2" aria-label="Default select example" style="display: none">
+                            <select name="parcela" id="parcela" class="form-select form-select-sm mt-2"
+                                    aria-label="Default select example" style="display: none">
                                 <?php
                                 $conta12 = 0;
                                 while ($conta12 < 12) {
@@ -159,7 +166,7 @@ include_once('navbar.php');
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary" id="btnFazerPedido" name="btnFazerPedido">Concluir
+                    <button type="submit" class="btn btn-success" id="btnFazerPedido" name="btnFazerPedido">Concluir
                     </button>
                 </div>
             </form>
@@ -167,6 +174,145 @@ include_once('navbar.php');
     </div>
 </div>
 
+<!-- Modal Editar Pedido -->
+<div class="modal fade" id="editPedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Pedido</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" id="frmEditPedido" name="frmEditPedido">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Cliente</h4>
+                            <input type="text" id="idEditPedido" hidden="hidden">
+                            <select id="editCliente" name="editCliente" class="form-select"
+                                    aria-label="Default select example">
+                                <?php
+
+                                $pessoa = listarTabelaOrdenada('idcliente,nomeCliente', 'cliente', 'nomeCliente', 'ASC');
+                                foreach ($pessoa as $cliente) {
+                                    $idcliente = $cliente->idcliente;
+                                    $nomeC = $cliente->nomeCliente;
+
+                                    ?>
+
+
+                                    <option value="<?php echo $idcliente; ?>"><?php echo $nomeC; ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Serviço</h4>
+                            <select id="editServico" name="editServico" class="form-select"
+                                    aria-label="Default select example">
+                                <?php
+                                $pessoa = listarTabelaOrdenada('idservico,nomeServico', 'servico', 'nomeServico', 'ASC');
+                                foreach ($pessoa as $servico) {
+                                    $idservico = $servico->idservico;
+                                    $nomeS = $servico->nomeServico;
+                                    ?>
+                                    <option value="<?php echo $idservico; ?>"><?php echo $nomeS; ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Prazo</h4>
+                            <div class="row text-center p-0 m-0">
+                                <div class="col-6 ">
+                                    <input type="date" class="form-control text-center" id="editDataInicio"
+                                           name="editDataInicio"
+                                           value="<?php echo DATAATUAL ?>">
+                                    <label for="editDataInicio">Início</label>
+                                </div>
+                                <div class="col-6 ">
+                                    <input type="date" class="form-control text-center" id="editDataFinal"
+                                           name="editDataFinal"
+                                           value="<?php echo DATAATUAL ?>">
+                                    <label for="editDataFinal">Final</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Valor</h4>
+                            <input id="editValor" name="editValor" type="number" step="0.010" min="1"
+                                   class="form-control text-center"
+                                   placeholder="Digite seu valor">
+                        </div>
+
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Forma de Pagamento</h4>
+                            <label class="mt-2">
+                                <input type="radio" name="editTipoPagamento" id="tipoEditVista">
+                                À Vista
+                            </label>
+                            <label class="mt-2">
+                                <input type="radio" name="editTipoPagamento" id="tipoEditPrazo">
+                                A Prazo
+                            </label>
+                        </div>
+                        <div class="col-6 mb-3 text-center">
+                            <h4 id='nomeEditEntrada' style="display: none">Entrada</h4>
+                            <input name="editEntrada" id="editEntrada" type="number" step="0.010" min="1"
+                                   class="form-control text-center"
+                                   placeholder="Digite sua entrada" style="display: none">
+                            <select name="editParcela" id="editParcela" class="form-select form-select-sm mt-2"
+                                    aria-label="Default select example" style="display: none">
+                                <?php
+                                $conta12 = 0;
+                                while ($conta12 < 12) {
+                                    $conta12 = $conta12 + 1;
+                                    ?>
+                                    <option value="<?php echo $conta12; ?>"><?php echo $conta12 . ' Parcela(s)'; ?></option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary" id="btnEditPedido" name="btnEditPedido">Editar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal Editar Pedido -->
+<div class="modal fade" id="deletePedido" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered  modal-sm">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Deletar Pedido</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" id="frmDeletePedido" name="frmDeletePedido">
+                <div class="modal-body ">
+
+                    <input type="text" id="idDeletePedido" name="btnDeletePedido" hidden>
+<div class="alert alert-danger">Tem certeza?</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-outline-danger" id="btnDeletePedido" name="btnDeletePedido">Deletar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -190,16 +336,16 @@ include_once('navbar.php');
     const entrada = document.getElementById('entrada');
     const nomeEntrada = document.getElementById('nomeEntrada');
 
-    tipoPrazo.addEventListener('click',function (){
-        parcela.style.display='block';
-        nomeEntrada.style.display='block';
-        entrada.style.display='block';
+    tipoPrazo.addEventListener('click', function () {
+        parcela.style.display = 'block';
+        nomeEntrada.style.display = 'block';
+        entrada.style.display = 'block';
 
     })
-    tipoVista.addEventListener('click',function (){
-        parcela.style.display='none';
-        nomeEntrada.style.display='none';
-        entrada.style.display='none';
+    tipoVista.addEventListener('click', function () {
+        parcela.style.display = 'none';
+        nomeEntrada.style.display = 'none';
+        entrada.style.display = 'none';
     })
 </script>
 </body>

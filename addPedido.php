@@ -22,7 +22,7 @@ if (isset($dados) && !empty($dados)) {
     } else {
         $tipo = 'Prazo';
     }
-    $retornoInsert = insert7Item('pedido', 'idadm, idcliente, idservico, valor, dataInicio, dataFinal, tipoPagamento, numeroParcelas, valorEntrada, cadastro', $idadm, $idCliente, $idServico, $Valor, $dataIN, $dataEnd, $tipo, $parcela, $entrada, DATATIMEATUAL);
+    $retornoInsert = insert10Item('pedido', 'idadm, idcliente, idservico, valor, dataInicio, dataFinal, tipoPagamento, numeroParcelas, valorEntrada, cadastro', $idadm, $idCliente, $idServico, $Valor, $dataIN, $dataEnd, $tipo, $parcela, $entrada, DATATIMEATUAL);
     if ($retornoInsert > 0) {
         echo json_encode(['success' => true, 'message' => "Pedido cadastrado com sucesso"]);
     } else {
