@@ -38,8 +38,8 @@
                     <td><?php echo $cadastro ?></td>
                     <td>
                         <!--<Button>Alterar</Button>-->
-                        <Button class="btn btn-primary btn-sm" onclick="abrirModalJsServico('<?php echo $id?>', 'idEditServico', '<?php echo $nome; ?>', 'addNomeServico', '<?php echo DATATIMEATUAL ?>', 'editServico', 'A', 'btnEditServico', 'editServico', 'editNomeServico', '', 'frmEditServico')">Alterar</Button>
-                        <Button class="btn btn-danger btn-sm" onclick="abrirModalJsServico('<?php echo $id?>', 'idDeleteServico', 'nao', 'nao', '<?php echo DATATIMEATUAL ?>', 'deleteServico', 'A', 'btnEditServico', 'deleteServico', 'nao', 'nao', 'frmEditServico')">Excluir</Button>
+                        <Button class="btn btn-primary btn-sm" onclick="abrirModalJsServico('<?php echo $id?>', 'idEditServico', '<?php echo $nome; ?>', 'addNomeServico', '<?php echo DATATIMEATUAL ?>', 'editServico', 'A', 'btnEditServico', 'editServico', 'editNomeServico', '<?php echo $nome; ?>', 'frmEditServico')">Alterar</Button>
+                        <Button class="btn btn-danger btn-sm" onclick="abrirModalJsServico('<?php echo $id?>', 'idDeleteServico', 'nao', 'nao', '<?php echo DATATIMEATUAL ?>', 'deleteServico', 'A', 'btnDeleteServico', 'deleteServico', 'nao', 'nao', 'frmDeleteServico')">Excluir</Button>
                     </td>
                 </tr>
                 <?php

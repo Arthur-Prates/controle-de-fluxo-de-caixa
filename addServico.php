@@ -5,7 +5,7 @@ include_once("./func/funcoes.php");
 
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-echo json_encode($dados);
+//echo json_encode($dados);
 
 
 if (isset($dados) && !empty($dados)) {

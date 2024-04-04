@@ -62,96 +62,96 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="addCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-success text-white">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de cliente</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="#" method="post" name="frmAddCliente" id="frmAddCliente">
-                <div class="modal-body">
-                    <div>
-                        <label for="addNomeCliente" class="label=control">Nome:</label>
-                        <input type="text" name="addNomeCliente" id="addNomeCliente" required="required"
-                               class="form-control">
-                    </div>
-                    <div>
-                        <label for="addCelularCliente" class="label=control">Celular:</label>
-                        <input type="text" name="addCelularCliente" id="addCelularCliente" required="required"
-                               class="form-control telefoneBR">
-                    </div>
-                    <div>
-                        <label for="addEmailCliente" class="label=control">Email:</label>
-                        <input type="email" name="addEmailCliente" id="addEmailCliente" required="required"
-                               class="form-control">
-                    </div>
+<!--<div class="modal fade" id="addCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header bg-success text-white">-->
+<!--                <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de cliente</h1>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <form action="#" method="post" name="frmAddCliente" id="frmAddCliente">-->
+<!--                <div class="modal-body">-->
+<!--                    <div>-->
+<!--                        <label for="addNomeCliente" class="label=control">Nome:</label>-->
+<!--                        <input type="text" name="addNomeCliente" id="addNomeCliente" required="required"-->
+<!--                               class="form-control">-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <label for="addCelularCliente" class="label=control">Celular:</label>-->
+<!--                        <input type="text" name="addCelularCliente" id="addCelularCliente" required="required"-->
+<!--                               class="form-control telefoneBR">-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <label for="addEmailCliente" class="label=control">Email:</label>-->
+<!--                        <input type="email" name="addEmailCliente" id="addEmailCliente" required="required"-->
+<!--                               class="form-control">-->
+<!--                    </div>-->
+<!---->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+<!--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>-->
+<!--                    <button type="submit" class="btn btn-success" id="btnAddCliente">Cadastrar</button>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-success" id="btnAddCliente">Cadastrar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+<!--<div class="modal fade" id="editCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header bg-primary text-white">-->
+<!--                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar cliente</h1>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <form action="" method="post" name="frmEditCliente" id="frmEditCliente">-->
+<!--                <div class="modal-body">-->
+<!--                    <input type="hidden" name="idEditCliente" id="idEditCliente">-->
+<!--                    <div>-->
+<!--                        <label for="editNomeCliente" class="label=control">Nome:</label>-->
+<!--                        <input type="text" name="editNomeCliente" id="editNomeCliente" required="required"-->
+<!--                               class="form-control">-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <label for="editCelularCliente" class="label=control">Celular:</label>-->
+<!--                        <input type="text" name="editCelularCliente" id="editCelularCliente" required="required"-->
+<!--                               class="form-control telefoneBR">-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <label for="editEmailCliente" class="label=control">Email:</label>-->
+<!--                        <input type="email" name="editEmailCliente" id="editEmailCliente" required="required"-->
+<!--                               class="form-control">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+<!--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>-->
+<!--                    <button type="submit" class="btn btn-primary" id="btnEditCliente">Editar</button>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
-<div class="modal fade" id="editCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar cliente</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="post" name="frmEditCliente" id="frmEditCliente">
-                <div class="modal-body">
-                    <input type="hidden" name="idEditCliente" id="idEditCliente">
-                    <div>
-                        <label for="editNomeCliente" class="label=control">Nome:</label>
-                        <input type="text" name="editNomeCliente" id="editNomeCliente" required="required"
-                               class="form-control">
-                    </div>
-                    <div>
-                        <label for="editCelularCliente" class="label=control">Celular:</label>
-                        <input type="text" name="editCelularCliente" id="editCelularCliente" required="required"
-                               class="form-control telefoneBR">
-                    </div>
-                    <div>
-                        <label for="editEmailCliente" class="label=control">Email:</label>
-                        <input type="email" name="editEmailCliente" id="editEmailCliente" required="required"
-                               class="form-control">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary" id="btnEditCliente">Editar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="deleteCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-sm">
-        <div class="modal-content">
-            <div class="modal-header bg-danger text-white">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Deletar cliente</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form action="" method="post" name="frmDeleteCliente" id="frmDeleteCliente">
-                <div class="modal-body">
-                    <input type="hidden" name="idDeleteCliente" id="idDeleteCliente">
-                    <div class="alert alert-danger" role="alert">
-                        Tem certeza?
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-danger" id="btnDeleteCliente">Deletar</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+<!--<div class="modal fade" id="deleteCliente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered modal-sm">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header bg-danger text-white">-->
+<!--                <h1 class="modal-title fs-5" id="exampleModalLabel">Deletar cliente</h1>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <form action="" method="post" name="frmDeleteCliente" id="frmDeleteCliente">-->
+<!--                <div class="modal-body">-->
+<!--                    <input type="hidden" name="idDeleteCliente" id="idDeleteCliente">-->
+<!--                    <div class="alert alert-danger" role="alert">-->
+<!--                        Tem certeza?-->
+<!--                    </div>-->
+<!---->
+<!--                </div>-->
+<!--                <div class="modal-footer">-->
+<!--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>-->
+<!--                    <button type="submit" class="btn btn-danger" id="btnDeleteCliente">Deletar</button>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->

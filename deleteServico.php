@@ -5,18 +5,18 @@ include_once("./func/funcoes.php");
 
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
-echo json_encode($dados);
+//echo json_encode($dados);
 
 
-//if (isset($dados) && !empty($dados)) {
-//    $id = isset($dados['idEditServico']) ? addslashes($dados['idEditServico']) : 0;
-//
-//    $retornoInsert = alterar1Item('servico','nomeServico',"$nome",'idservico',"$id");
-//    if($retornoInsert > 0){
-//        echo json_encode(['success' => true, 'message' => 'Serviço editado com sucesso.']);
-//    }else{
-//        echo json_encode(['success' => false, 'message' => 'Serviço não editado.']);
-//    }
-//}else{
-//    echo json_encode(['success' => false, 'message' => 'Serviço não encontrado.']);
-//}
+if (isset($dados) && !empty($dados)) {
+    $id = isset($dados['idDeleteServico']) ? addslashes($dados['idDeleteServico']) : 0;
+
+    $retornoInsert = deletarCadastro('servico','idservico',$id);
+    if($retornoInsert > 0){
+        echo json_encode(['success' => true, 'message' => 'Serviço apagado com sucesso.']);
+    }else{
+        echo json_encode(['success' => false, 'message' => 'Serviço não apagado.']);
+    }
+}else{
+    echo json_encode(['success' => false, 'message' => 'Serviço não encontrado.']);
+}
