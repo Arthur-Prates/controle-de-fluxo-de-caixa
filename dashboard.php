@@ -41,7 +41,7 @@ include_once('navbar.php');
                 <a class="aNavLateral" href="#" onclick="carregarConteudo('listarCliente')">
                     <div class="mt-2 btnNavLateral">Clientes</div>
                 </a>
-                <a class="aNavLateral" href="#" onclick="carregarConteudo('listarServiço')">
+                <a class="aNavLateral" href="#" onclick="carregarConteudo('listarServico')">
                     <div class="mt-2 btnNavLateral">Serviços</div>
                 </a>
                 <a class="aNavLateral" href="#" onclick="carregarConteudo('listarAtendente')">
@@ -60,6 +60,30 @@ include_once('navbar.php');
                 </div>
 
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal adição de servico-->
+<div class="modal fade" id="addServico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar serviço</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="post" name="frmAddServico" id="frmAddServico">
+                <div class="modal-body">
+                    <div>
+                        <label for="addNomeServico" class="label-control">Nome do serviço</label>
+                        <input type="text" name="addNomeServico" id="addNomeServico" required="required" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-success" id="btnAddServico">Cadastrar</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -275,11 +299,7 @@ include_once('navbar.php');
                                 ?>
                             </select>
                         </div>
-
-
                     </div>
-
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -413,8 +433,6 @@ include_once('navbar.php');
         </div>
     </div>
 </div>
-
-
 
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
