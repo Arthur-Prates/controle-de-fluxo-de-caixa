@@ -603,7 +603,7 @@ include_once('navbar.php');
             </div>
             <form action="" method="post" name="frmEditAtendente" id="frmEditAtendente">
                 <div class="modal-body">
-                    <input type="text" name="idEditAtendente" id="idEditAtendente">
+                    <input type="hidden" name="idEditAtendente" id="idEditAtendente">
                     <div>
                         <label for="editNomeAtendente" class="label-control">Nome do atendente:</label>
                         <input type="text" name="editNomeAtendente" id="editNomeAtendente" required="required"
@@ -640,7 +640,7 @@ include_once('navbar.php');
             </div>
             <form action="" method="post" name="frmDeleteAtendente" id="frmDeleteAtendente">
                 <div class="modal-body">
-                    <input type="text" name="idDeleteAtendente" id="idDeleteAtendente">
+                    <input type="hidden" name="idDeleteAtendente" id="idDeleteAtendente">
                     <div class="alert alert-danger">Tem certeza?</div>
                 </div>
                 <div class="modal-footer">
