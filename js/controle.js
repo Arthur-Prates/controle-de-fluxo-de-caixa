@@ -201,7 +201,7 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
                     console.log(data)
                     if (data.success) {
                         carregarConteudo("listarPedido");
-
+                        alert(data.message)
                         // switch (addEditDel) {
                         //     case 'addProprietario':
                         //         addOuEditSucesso('Você', 'success', 'adicionou')
@@ -218,6 +218,7 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
                         ModalInstacia.hide();
                     } else {
                         // addErro()
+                        alert(data.message)
                         ModalInstacia.hide();
                         carregarConteudo("listarPedido");
                     }
@@ -294,6 +295,7 @@ function abrirModalJsCliente(id, inID, nomeCliente, inNomeCliente, contatoClient
                 .then(data => {
                     console.log(data)
                     if (data.success) {
+                        alert(data.message)
                         carregarConteudo("listarCliente");
                         // switch (addEditDel) {
                         //     case 'addProprietario':
@@ -311,11 +313,13 @@ function abrirModalJsCliente(id, inID, nomeCliente, inNomeCliente, contatoClient
                         ModalInstacia.hide();
                     } else {
                         // addErro()
+                        alert(data.message)
                         ModalInstacia.hide();
                         carregarConteudo("listarCliente");
                     }
                 })
                 .catch(error => {
+                    alert(data.message)
                     botoes.disabled = false;
                     ModalInstacia.hide();
                     // addErro()
@@ -377,6 +381,7 @@ function abrirModalJsServico(id, inID, nomeServico, inNomeServico, dataTime, nom
                 .then(data => {
                     console.log(data)
                     if (data.success) {
+                        alert(data.message)
                         carregarConteudo("listarServico");
                         // switch (addEditDel) {
                         //     case 'addProprietario':
@@ -394,6 +399,7 @@ function abrirModalJsServico(id, inID, nomeServico, inNomeServico, dataTime, nom
                         ModalInstacia.hide();
                     } else {
                         // addErro()
+                        alert(data.message)
                         ModalInstacia.hide();
                         carregarConteudo("listarServico");
                     }
@@ -405,6 +411,99 @@ function abrirModalJsServico(id, inID, nomeServico, inNomeServico, dataTime, nom
                 //     carregarConteudo("listarServico");
                 //     console.error('Erro na requisição:', error);
                 // });
+        }
+        formDados.addEventListener('submit', submitHandler);
+
+
+    } else {
+        botoes.disabled = false;
+        ModalInstacia.hide();
+    }
+
+}
+
+function abrirModalJsAtendente(id, inID, nomeAtendente, inNomeAtendente,emailAtendente, inEmailAtendente,senhaAtendente,inSenhaAtendente, dataTime, nomeModal, abrirModal = 'A', botao, addEditDel, inFocus, inFocusValue, formulario) {
+    const formDados = document.getElementById(`${formulario}`)
+
+    var botoes = document.getElementById(`${botao}`);
+    const ModalInstacia = new bootstrap.Modal(document.getElementById(`${nomeModal}`))
+    if (abrirModal === 'A') {
+        ModalInstacia.show();
+
+        const inputFocar = document.getElementById(`${inFocus}`);
+        if (inFocusValue !== 'nao') {
+            inputFocar.value = inFocusValue;
+            setTimeout(function () {
+                inputFocar.focus();
+            }, 500);
+        }
+        const inputid = document.getElementById(`${inID}`);
+        if (inID !== 'nao') {
+            inputid.value = id;
+        }
+        const inputNome = document.getElementById(`${inNomeAtendente}`);
+        if (inNomeAtendente !== 'nao') {
+            inputNome.value = nomeAtendente;
+        }
+        const inputEmail = document.getElementById(`${inEmailAtendente}`);
+        if (inEmailAtendente !== 'nao') {
+            inputEmail.value = emailAtendente;
+        }
+        const inputSenha = document.getElementById(`${inSenhaAtendente}`);
+        if (inSenhaAtendente !== 'nao') {
+            inputSenha.value = senhaAtendente;
+        }
+
+
+
+        const submitHandler = function (event) {
+            event.preventDefault();
+            // alert('AQUIIIII')
+            botoes.disabled = true;
+
+            const form = event.target;
+            const formData = new FormData(form);
+            // if (dataTime !== 'nao') {
+            //     formData.append('dataTime', `${dataTime}`)
+            // }
+            formData.append('controle', `${addEditDel}`)
+            fetch('controle.php', {
+                method: 'POST', body: formData,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.success) {
+                        carregarConteudo("listarAtendente");
+                        alert(data.message)
+                        // switch (addEditDel) {
+                        //     case 'addProprietario':
+                        //         addOuEditSucesso('Você', 'success', 'adicionou')
+                        //         break;
+                        //     case 'editProprietario':
+                        //         addOuEditSucesso('Você', 'info', 'editou')
+                        //         botoes.disabled = false;
+                        //         break;
+                        //     case 'deleteProprietario':
+                        //         addOuEditSucesso('Você', 'success', 'deletou')
+                        //         botoes.disabled = false;
+                        //         break;
+                        // }
+                        ModalInstacia.hide();
+                    } else {
+                        // addErro()
+                        alert(data.message);
+                        ModalInstacia.hide();
+                        carregarConteudo("listarAtendente");
+                    }
+                })
+            // .catch(error => {
+            //     botoes.disabled = false;
+            //     ModalInstacia.hide();
+            //     // addErro()
+            //     carregarConteudo("listarServico");
+            //     console.error('Erro na requisição:', error);
+            // });
         }
         formDados.addEventListener('submit', submitHandler);
 

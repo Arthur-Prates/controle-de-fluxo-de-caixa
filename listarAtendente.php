@@ -6,7 +6,7 @@
 <div class="card mt-3">
     <div class="card-header fs-4 d-flex justify-content-between align-items-center">
         <div><i class="bi bi-person-badge-fill"></i> Atendentes</div>
-        <button class="btn btn-success btn-sm">Cadastrar</button>
+        <button class="btn btn-success btn-sm" onclick="abrirModalJsAtendente('nao', 'nao', 'nao', 'nao','nao', 'nao','nao','nao', '<?php echo DATATIMEATUAL?>', 'addAtendente','A', 'btnAddAtendente', 'addAtendente', 'addNomeAtendente', '', 'frmAddAtendente')">Cadastrar</button>
     </div>
     <div class="card-body">
         <table class="table">
@@ -23,6 +23,7 @@
             $cont = 1;
             $atendente = listarTabela('*','adm');
             foreach ($atendente as $adm){
+                $id = $adm ->idadm;
                 $nome = $adm -> nomeAdm;
                 $email = $adm -> email;
 
@@ -33,8 +34,8 @@
                     <td><?php echo $email;?></td>
                     <td>
                         <!--                    <Button>Alterar</Button>-->
-                        <Button class="btn btn-primary btn-sm">Alterar</Button>
-                        <Button class="btn btn-danger btn-sm">Excluir</Button>
+                        <Button class="btn btn-primary btn-sm" onclick="abrirModalJsAtendente('<?php echo $id?>', 'idEditAtendente', '<?php echo $nome;?>', 'editNomeAtendente','<?php echo $email;?>', 'editEmailAtendente','','editSenhaAtendente', '<?php echo DATATIMEATUAL?>', 'editAtendente','A', 'btnEditAtendente', 'editAtendente', 'editNomeAtendente', '', 'frmEditAtendente')">Alterar</Button>
+                        <Button class="btn btn-danger btn-sm" onclick="abrirModalJsAtendente('<?php echo $id?>', 'idDeleteAtendente', 'nao', 'nao','nao', 'nao','nao','nao', '<?php echo DATATIMEATUAL?>', 'deleteAtendente','A', 'btnDeleteAtendente', 'deleteAtendente', 'nao', 'nao', 'frmDeleteAtendente')">Excluir</Button>
                     </td>
                 </tr>
                 <?php
