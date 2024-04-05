@@ -518,18 +518,28 @@ include_once('navbar.php');
                         </div>
                         <div class="col-6 mb-3 text-center">
                             <h4>Valor</h4>
-                            <input id="verMaisValor" name="verMaisValor" type="text" step="0.010" min="1"
+                            <input id="verMaisValor" name="verMaisValor" type="text"
+                                   class="form-control text-center" disabled>
+                        </div>
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Tipo de Pagamento</h4>
+                            <input id="verMaisTipoPag" name="verMaisTipoPag" type="text"
+                                   class="form-control text-center" disabled>
+                        </div>
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Atendente</h4>
+                            <input id="verMaisAtendente" name="verMaisAtendente" type="text"
                                    class="form-control text-center" disabled>
                         </div>
 
                         <div class="col-6 mb-3 text-center">
-                            <h4 id='nomeEntrada'>Entrada</h4>
-                            <input name="verMaisentrada" id="verMaisentrada" type="text" step="0.010" min="1"
+                            <h4>Entrada</h4>
+                            <input name="verMaisentrada" id="verMaisentrada" type="text"
                                    class="form-control text-center"
                                    placeholder="Sem Entrada" disabled>
                         </div>
                         <div class="col-6 mb-3 text-center">
-                            <h4 id='nomeEntrada'>Parcelas</h4>
+                            <h4>Parcelas</h4>
                             <input type="text" name="verMaisparcela" id="verMaisparcela"
                                    class="form-control text-center"
                                    disabled>

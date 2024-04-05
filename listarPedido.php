@@ -50,7 +50,7 @@
                         <td>
 
                             <Button class="btn btn-info btn-sm text-white" data-bs-toggle="modal"
-                                    onclick="abrirModalJsPedido('nao', 'nao', '<?php echo $nomeCliente; ?>', 'verMaisCliente','nao','nao','<?php echo $nomeServico; ?>', 'verMaisServico','<?php echo $valor; ?>', 'verMaisValor','<?php echo $dataIn; ?>', 'verMaisDataInicio','<?php echo $dataEnd; ?>', 'verMaisDataFinal', '<?php echo $valorEntrada; ?>', 'verMaisentrada', '<?php echo $numeroParcelas; ?>', 'verMaisparcela', 'verMaisPedido','A', 'nao', 'verMaisPedido',  'frmVerMaisPedido')">
+                                    onclick="abrirModalJsPedido('nao', 'nao', '<?php echo $nomeCliente; ?>', 'verMaisCliente','<?php echo $atendente; ?>','verMaisAtendente','<?php echo $nomeServico; ?>', 'verMaisServico','<?php echo $valor; ?>', 'verMaisValor','<?php echo $dataIn; ?>', 'verMaisDataInicio','<?php echo $dataEnd; ?>', 'verMaisDataFinal', '<?php echo $valorEntrada; ?>', 'verMaisentrada', '<?php echo $numeroParcelas; ?>', 'verMaisparcela', 'verMaisPedido','A', 'nao', 'verMaisPedido',  'frmVerMaisPedido')">
                                 Ver Mais
                             </Button>
                             <Button class="btn btn-primary btn-sm" data-bs-toggle="modal"
