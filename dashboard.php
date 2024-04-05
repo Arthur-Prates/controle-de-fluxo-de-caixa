@@ -221,7 +221,9 @@ include_once('navbar.php');
             <form action="" method="post" name="frmDeleteServico" id="frmDeleteServico">
                 <div class="modal-body">
                     <input type="hidden" name="idDeleteServico" id="idDeleteServico">
-                    Tem certeza?
+                    <div class="alert alert-danger">
+                        Tem certeza?
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -641,7 +643,9 @@ include_once('navbar.php');
             <form action="" method="post" name="frmDeleteAtendente" id="frmDeleteAtendente">
                 <div class="modal-body">
                     <input type="hidden" name="idDeleteAtendente" id="idDeleteAtendente">
-                    <div class="alert alert-danger">Tem certeza?</div>
+                    <div class="alert alert-danger">
+                        Tem certeza?
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
