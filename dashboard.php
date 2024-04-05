@@ -548,6 +548,101 @@ include_once('navbar.php');
 </div>
 
 
+<!-- Modal adição de atendente-->
+<div class="modal fade" id="addAtendente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar atendente</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="post" name="frmAddAtendente" id="frmAddAtendente">
+                <div class="modal-body">
+                    <div>
+                        <label for="addNomeAtendente" class="label-control">Nome do atendente:</label>
+                        <input type="text" name="addNomeAtendente" id="addNomeAtendente" required="required"
+                               class="form-control">
+                    </div>
+                    <div>
+                        <label for="addEmailAtendente" class="label-control">Email do atendente:</label>
+                        <input type="email" name="addEmailAtendente" id="addEmailAtendente" required="required"
+                               class="form-control">
+                    </div>
+                    <div>
+                        <label for="addSenhaAtendente" class="label-control">Senha:</label>
+                        <input type="password" name="addSenhaAtendente" id="addSenhaAtendente" required="required"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-success" id="btnAddAtendente">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal edição de atendente-->
+<div class="modal fade" id="editAtendente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar atendente</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="post" name="frmEditAtendente" id="frmEditAtendente">
+                <div class="modal-body">
+                    <input type="text" name="idEditAtendente" id="idEditAtendente">
+                    <div>
+                        <label for="editNomeAtendente" class="label-control">Nome do atendente:</label>
+                        <input type="text" name="editNomeAtendente" id="editNomeAtendente" required="required"
+                               class="form-control">
+                    </div>
+                    <div>
+                        <label for="editEmailAtendente" class="label-control">Email do atendente:</label>
+                        <input type="email" name="editEmailAtendente" id="editEmailAtendente" required="required"
+                               class="form-control">
+                    </div>
+                    <div>
+                        <label for="editSenhaAtendente" class="label-control">Senha:</label>
+                        <input type="password" name="editSenhaAtendente" id="editSenhaAtendente" required="required"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-primary" id="btnEditAtendente">Editar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal delete atendente-->
+<div class="modal fade" id="deleteAtendente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Deletar atendente</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="post" name="frmDeleteAtendente" id="frmDeleteAtendente">
+                <div class="modal-body">
+                    <input type="text" name="idDeleteAtendente" id="idDeleteAtendente">
+                    <div class="alert alert-danger">Tem certeza?</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="submit" class="btn btn-danger" id="btnDeleteAtendente">Deletar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
