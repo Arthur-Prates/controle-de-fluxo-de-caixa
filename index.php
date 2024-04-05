@@ -89,7 +89,6 @@ include_once('navbar.php');
             <div class="alert erroBonito p-1 text-center fonte" role="alert" id="alertlog" style="display: none;">
             </div>
             <button class="button-submit fonte" type='button' onclick='fazerLogin()'>Entrar</button>
-            <p class="p fonte">Não tem uma conta? <span class="span">Registre-se</span>
 
             </p>
         </form>
