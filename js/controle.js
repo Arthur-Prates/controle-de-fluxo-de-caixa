@@ -145,13 +145,27 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
             inValor.value = idValor;
             if (document.getElementById('verMaisCliente')) {
 
+                const verMaisPag = document.getElementById('verMaisTipoPag');
+                // const verEntrada = document.getElementById('verMaisentrada').value();
+                // const EntradaValue = document.getElementById(`${idEntrada}`).value();
+
+                if (idEntrada === '' || idEntrada === 0 || idEntrada === null) {
+                    verMaisPag.value = 'À Vista';
+                } else {
+                    verMaisPag.value = 'A Prazo';
+                }
+
                 const inIdClient = document.getElementById(`${inIdCliente}`);
                 if (inIdCliente !== 'nao') {
                     inIdClient.value = idCliente;
                 }
+                const inAdm = document.getElementById(`${inIdAdm}`);
+                if (inIdAdm !== 'nao') {
+                    inAdm.value = idAdm;
+                }
                 const inIdNumParcel = document.getElementById(`${inIdNumParc}`);
                 if (inIdNumParc !== 'nao') {
-                    inIdNumParcel.value = idNumParc+ ' Parcela(s)';
+                    inIdNumParcel.value = idNumParc + ' Parcela(s)';
                 }
 
                 const inIdServ = document.getElementById(`${inIdServico}`);
@@ -169,9 +183,9 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
         if (inIdDataFinal !== 'nao') {
             inDataEND.value = idDataFinal;
         }
-        const Entrada = document.getElementById(`${inIdEntrada}`);
-        if (inIdEntrada !== 'nao' && inIdEntrada !== 0 && inIdEntrada !== '') {
-            Entrada.value = idEntrada;
+        const inEntrada = document.getElementById(`${inIdEntrada}`);
+        if (inIdEntrada !== 'nao' || inIdEntrada !== 0 || inIdEntrada !== '') {
+            inEntrada.value = idEntrada;
             const tipoEditPrazo = document.getElementById('tipoEditPrazo');
             const editParc = document.getElementById('editParcela');
             const editEntra = document.getElementById('editEntrada');
@@ -404,13 +418,13 @@ function abrirModalJsServico(id, inID, nomeServico, inNomeServico, dataTime, nom
                         carregarConteudo("listarServico");
                     }
                 })
-                // .catch(error => {
-                //     botoes.disabled = false;
-                //     ModalInstacia.hide();
-                //     // addErro()
-                //     carregarConteudo("listarServico");
-                //     console.error('Erro na requisição:', error);
-                // });
+            // .catch(error => {
+            //     botoes.disabled = false;
+            //     ModalInstacia.hide();
+            //     // addErro()
+            //     carregarConteudo("listarServico");
+            //     console.error('Erro na requisição:', error);
+            // });
         }
         formDados.addEventListener('submit', submitHandler);
 
@@ -422,7 +436,7 @@ function abrirModalJsServico(id, inID, nomeServico, inNomeServico, dataTime, nom
 
 }
 
-function abrirModalJsAtendente(id, inID, nomeAtendente, inNomeAtendente,emailAtendente, inEmailAtendente,senhaAtendente,inSenhaAtendente, dataTime, nomeModal, abrirModal = 'A', botao, addEditDel, inFocus, inFocusValue, formulario) {
+function abrirModalJsAtendente(id, inID, nomeAtendente, inNomeAtendente, emailAtendente, inEmailAtendente, senhaAtendente, inSenhaAtendente, dataTime, nomeModal, abrirModal = 'A', botao, addEditDel, inFocus, inFocusValue, formulario) {
     const formDados = document.getElementById(`${formulario}`)
 
     var botoes = document.getElementById(`${botao}`);
@@ -453,7 +467,6 @@ function abrirModalJsAtendente(id, inID, nomeAtendente, inNomeAtendente,emailAte
         if (inSenhaAtendente !== 'nao') {
             inputSenha.value = senhaAtendente;
         }
-
 
 
         const submitHandler = function (event) {
