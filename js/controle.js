@@ -26,6 +26,26 @@ function carregarConteudo(controle) {
         });
 }
 
+function mostrarProcessando(){
+    var divFundoEscuro = document.createElement('div');
+    divFundoEscuro.id = 'fundoEscuro';
+    divFundoEscuro.style.position = 'fixed';
+    divFundoEscuro.style.top = '0';
+    divFundoEscuro.style.left = '0';
+    divFundoEscuro.style.width = '100%';
+    divFundoEscuro.style.height = '100%';
+    divFundoEscuro.style.backgroundColor = 'rgba(0,0,0,0.7)';
+    document.body.appendChild(divFundoEscuro);
+
+    var divProcessando = document.createElement('div');
+    divProcessando.id = 'processandoDiv';
+    divProcessando.style.position = 'fixed';
+    divProcessando.style.top = '40%';
+    divProcessando.style.left = '50%';
+    divProcessando.style.transform = 'translate(-50%, -50%)';
+    divProcessando.innerHTML = '<lottie-player autoplay loop mode="normal" src="./img/loading/logado.json" style="width: 140px;"></lottie-player>'
+    document.body.appendChild(divProcessando);
+}
 
 function mostrarsenha() {
     var inputPass = document.getElementById('senha');
@@ -86,9 +106,10 @@ function fazerLogin() {
         .then((data) => {
 
             if (data.success) {
+                mostrarProcessando();
                 setTimeout(function () {
                     window.location.href = "dashboard.php";
-                }, 2000);
+                }, 4200);
                 //alert(data.message);
                 alertlog.classList.remove("erroBonito");
                 alertlog.classList.add("acertoBonito");
