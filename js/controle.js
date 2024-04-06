@@ -159,7 +159,6 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
                 if (inIdEntrada !== 'nao') {
                     inEntrada.value = idEntrada;
                 }
-                // inEntrada.value = idEntrada;
 
                 const inIdClient = document.getElementById(`${inIdCliente}`);
                 if (inIdCliente !== 'nao') {
@@ -189,6 +188,7 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
         if (inIdDataFinal !== 'nao') {
             inDataEND.value = idDataFinal;
         }
+
         if (inIdEntrada !== 'nao' || inIdEntrada !== 0 || inIdEntrada !== '') {
             const tipoEditPrazo = document.getElementById('tipoEditPrazo');
             const editParc = document.getElementById('editParcela');
