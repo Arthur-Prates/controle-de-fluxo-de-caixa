@@ -534,16 +534,6 @@ include_once('navbar.php');
                                    class="form-control text-center" disabled>
                         </div>
                         <div class="col-6 mb-3 text-center">
-                            <h4>Tipo de Pagamento</h4>
-                            <input id="verMaisTipoPag" name="verMaisTipoPag" type="text"
-                                   class="form-control text-center" disabled>
-                        </div>
-                        <div class="col-6 mb-3 text-center">
-                            <h4>Atendente</h4>
-                            <input id="verMaisAtendente" name="verMaisAtendente" type="text"
-                                   class="form-control text-center" disabled>
-                        </div>
-                        <div class="col-6 mb-3 text-center">
                             <h4>Entrada</h4>
                             <input name="verMaisentrada" id="verMaisentrada" type="text"
                                    class="form-control text-center"
