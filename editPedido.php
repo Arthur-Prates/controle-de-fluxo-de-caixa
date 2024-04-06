@@ -26,9 +26,9 @@ if (isset($dados) && !empty($dados)) {
     }   $retornoInsert =  alterar9Item('pedido', 'idadm', 'idcliente', 'idservico', 'valor', 'dataInicio','dataFinal','tipoPagamento', 'numeroParcelas', 'valorEntrada', $idadm, $idCliente, $idServico, $Valor, $dataIN, $dataEnd, $tipo, $parcela, $entrada, 'idpedido', $idPedido);
 
     if ($retornoInsert > 0) {
-        echo json_encode(['success' => true, 'message' => "Pedido cadastrado com sucesso"]);
+        echo json_encode(['success' => true, 'message' => "Pedido alterado com sucesso"]);
     } else {
-        echo json_encode(['success' => false, 'message' => "Pedido não cadastrado!"]);
+        echo json_encode(['success' => false, 'message' => "Pedido não alterado!"]);
     }
 } else {
     echo json_encode((['success' => false, 'message' => 'Pedido não encontrado!']));
