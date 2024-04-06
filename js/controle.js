@@ -155,6 +155,11 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
                     verMaisPag.value = 'A Prazo';
                 }
 
+                const inEntrada = document.getElementById(`${inIdEntrada}`);
+                if (inIdEntrada !== 'nao') {
+                    inEntrada.value = idEntrada;
+                }
+
                 const inIdClient = document.getElementById(`${inIdCliente}`);
                 if (inIdCliente !== 'nao') {
                     inIdClient.value = idCliente;
@@ -183,9 +188,8 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
         if (inIdDataFinal !== 'nao') {
             inDataEND.value = idDataFinal;
         }
-        const inEntrada = document.getElementById(`${inIdEntrada}`);
+
         if (inIdEntrada !== 'nao' || inIdEntrada !== 0 || inIdEntrada !== '') {
-            inEntrada.value = idEntrada;
             const tipoEditPrazo = document.getElementById('tipoEditPrazo');
             const editParc = document.getElementById('editParcela');
             const editEntra = document.getElementById('editEntrada');
@@ -199,7 +203,6 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
         }
         const submitHandler = function (event) {
             event.preventDefault();
-
             botoes.disabled = true;
 
             const form = event.target;

@@ -243,7 +243,7 @@ include_once('navbar.php');
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Pedido</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" id="frmFazerPedido" name="frmFazerPedido">
+            <form action="" id="frmFazerPedido" name="frmFazerPedido" method="post">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-6 mb-3 text-center">
@@ -353,7 +353,7 @@ include_once('navbar.php');
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Pedido</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="" id="frmEditPedido" name="frmEditPedido">
+            <form action="" id="frmEditPedido" name="frmEditPedido" method="post">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-6 mb-3 text-center">
@@ -533,7 +533,16 @@ include_once('navbar.php');
                             <input id="verMaisAtendente" name="verMaisAtendente" type="text"
                                    class="form-control text-center" disabled>
                         </div>
-
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Tipo de Pagamento</h4>
+                            <input id="verMaisTipoPag" name="verMaisTipoPag" type="text"
+                                   class="form-control text-center" disabled>
+                        </div>
+                        <div class="col-6 mb-3 text-center">
+                            <h4>Atendente</h4>
+                            <input id="verMaisAtendente" name="verMaisAtendente" type="text"
+                                   class="form-control text-center" disabled>
+                        </div>
                         <div class="col-6 mb-3 text-center">
                             <h4>Entrada</h4>
                             <input name="verMaisentrada" id="verMaisentrada" type="text"

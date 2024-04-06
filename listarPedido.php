@@ -27,46 +27,46 @@
 
 
 
-                foreach ($data as $pedido) {
-                    $idpedido = $pedido->idpedido;
-                    $idadm = $pedido->idadm;
-                    $idCliente = $pedido->idcliente;
-                    $dataIn = $pedido->dataInicio;
-                    $dataEnd = $pedido->dataFinal;
-                    $nomeCliente = $pedido->nomeCliente;
-                    $nomeServico = $pedido->nomeServico;
-                    $numeroParcelas = $pedido->numeroParcelas;
-                    $valorEntrada = $pedido->valorEntrada;
-                    $atendente = $pedido->nomeAdm;
-                    $valor = $pedido->valor;
-                    $contar = $contar + 1;
-                    ?>
+            foreach ($data as $pedido) {
+                $idpedido = $pedido->idpedido;
+                $idadm = $pedido->idadm;
+                $idCliente = $pedido->idcliente;
+                $dataIn = $pedido->dataInicio;
+                $dataEnd = $pedido->dataFinal;
+                $nomeCliente = $pedido->nomeCliente;
+                $nomeServico = $pedido->nomeServico;
+                $numeroParcelas = $pedido->numeroParcelas;
+                $valorEntrada = $pedido->valorEntrada;
+                $atendente = $pedido->nomeAdm;
+                $valor = $pedido->valor;
+                $contar = $contar + 1;
+                ?>
 
-                    <tr>
-                        <th scope="row"><?php echo $contar; ?></th>
-                        <td><?php echo $nomeCliente; ?></td>
-                        <td><?php echo $nomeServico; ?></td>
-                        <td><?php echo $atendente; ?></td>
-                        <td>
+                <tr>
+                    <th scope="row"><?php echo $contar; ?></th>
+                    <td><?php echo $nomeCliente; ?></td>
+                    <td><?php echo $nomeServico; ?></td>
+                    <td><?php echo $atendente; ?></td>
+                    <td>
 
-                            <Button class="btn btn-info btn-sm text-white" data-bs-toggle="modal"
-                                    onclick="abrirModalJsPedido('nao', 'nao', '<?php echo $nomeCliente; ?>', 'verMaisCliente','<?php echo $atendente; ?>','verMaisAtendente','<?php echo $nomeServico; ?>', 'verMaisServico','<?php echo $valor; ?>', 'verMaisValor','<?php echo $dataIn; ?>', 'verMaisDataInicio','<?php echo $dataEnd; ?>', 'verMaisDataFinal', '<?php echo $valorEntrada; ?>', 'verMaisentrada', '<?php echo $numeroParcelas; ?>', 'verMaisparcela', 'verMaisPedido','A', 'nao', 'verMaisPedido',  'frmVerMaisPedido')">
-                                Ver Mais
-                            </Button>
-                            <Button class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                    onclick="abrirModalJsPedido('<?php echo $idpedido; ?>', 'idEditPedido', '<?php echo $idCliente; ?>', 'editCliente','nao','nao','<?php echo $nomeServico; ?>', 'editServico','<?php echo $valor; ?>', 'editValor','<?php echo $dataIn; ?>', 'editDataInicio','<?php echo $dataEnd; ?>', 'editDataFinal', '<?php echo $valorEntrada; ?>', 'editEntrada', '<?php echo $numeroParcelas; ?>', 'editParcela', 'editPedido','A', 'btnEditPedido', 'editPedido',  'frmEditPedido')">
-                                Alterar
-                            </Button>
-                            <Button class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                    onclick="abrirModalJsPedido('<?php echo $idpedido; ?>', 'idDeletePedido', 'nao', 'nao','nao', 'nao','nao', 'nao','nao', 'nao','nao', 'nao','nao', 'nao', 'nao', 'nao', 'nao', 'nao', 'deletePedido','A', 'btnDeletePedido', 'deletePedido',  'frmDeletePedido')">
-                                Excluir
-                            </Button>
+                        <Button class="btn btn-info btn-sm text-white" data-bs-toggle="modal"
+                                onclick="abrirModalJsPedido('nao', 'nao', '<?php echo $nomeCliente; ?>', 'verMaisCliente','<?php echo $atendente; ?>','verMaisAtendente','<?php echo $nomeServico; ?>', 'verMaisServico','<?php echo $valor; ?>', 'verMaisValor','<?php echo $dataIn; ?>', 'verMaisDataInicio','<?php echo $dataEnd; ?>', 'verMaisDataFinal', '<?php echo $valorEntrada; ?>', 'verMaisentrada', '<?php echo $numeroParcelas; ?>', 'verMaisparcela', 'verMaisPedido','A', 'nao', 'verMaisPedido',  'frmVerMaisPedido')">
+                            Ver Mais
+                        </Button>
+                        <Button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                onclick="abrirModalJsPedido('<?php echo $idpedido; ?>', 'idEditPedido', '<?php echo $idCliente; ?>', 'editCliente','nao','nao','<?php echo $nomeServico; ?>', 'editServico','<?php echo $valor; ?>', 'editValor','<?php echo $dataIn; ?>', 'editDataInicio','<?php echo $dataEnd; ?>', 'editDataFinal', '<?php echo $valorEntrada; ?>', 'editEntrada', '<?php echo $numeroParcelas; ?>', 'editParcela', 'editPedido','A', 'btnEditPedido', 'editPedido',  'frmEditPedido')">
+                            Alterar
+                        </Button>
+                        <Button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                onclick="abrirModalJsPedido('<?php echo $idpedido; ?>', 'idDeletePedido', 'nao', 'nao','nao', 'nao','nao', 'nao','nao', 'nao','nao', 'nao','nao', 'nao', 'nao', 'nao', 'nao', 'nao', 'deletePedido','A', 'btnDeletePedido', 'deletePedido',  'frmDeletePedido')">
+                            Excluir
+                        </Button>
 
-                        </td>
-                    </tr>
+                    </td>
+                </tr>
 
-                    <?php
-                }
+                <?php
+            }
             } else {
                 ?>
                 <div style="display: flex;justify-content: center;align-items: center; min-height: 95vh !important;">
