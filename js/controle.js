@@ -239,7 +239,7 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
                     console.log(data)
                     if (data.success) {
                         carregarConteudo("listarPedido");
-                        alert(data.message)
+                        alertSuccess(data.message)
                         // switch (addEditDel) {
                         //     case 'addProprietario':
                         //         addOuEditSucesso('Você', 'success', 'adicionou')
@@ -255,8 +255,7 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
                         // }
                         ModalInstacia.hide();
                     } else {
-                        // addErro()
-                        alert(data.message)
+                        alertError(data.message)
                         ModalInstacia.hide();
                         carregarConteudo("listarPedido");
                     }
@@ -264,7 +263,6 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
                 .catch(error => {
                     botoes.disabled = false;
                     ModalInstacia.hide();
-                    // addErro()
                     carregarConteudo("listarPedido");
                     console.error('Erro na requisição:', error);
                 });
@@ -333,7 +331,7 @@ function abrirModalJsCliente(id, inID, nomeCliente, inNomeCliente, contatoClient
                 .then(data => {
                     console.log(data)
                     if (data.success) {
-                        alert(data.message)
+                        alertSuccess(data.message)
                         carregarConteudo("listarCliente");
                         // switch (addEditDel) {
                         //     case 'addProprietario':
@@ -351,16 +349,14 @@ function abrirModalJsCliente(id, inID, nomeCliente, inNomeCliente, contatoClient
                         ModalInstacia.hide();
                     } else {
                         // addErro()
-                        alert(data.message)
+                        alertError(data.message)
                         ModalInstacia.hide();
                         carregarConteudo("listarCliente");
                     }
                 })
                 .catch(error => {
-                    alert(data.message)
                     botoes.disabled = false;
                     ModalInstacia.hide();
-                    // addErro()
                     carregarConteudo("listarCliente");
                     console.error('Erro na requisição:', error);
                 });
@@ -419,7 +415,7 @@ function abrirModalJsServico(id, inID, nomeServico, inNomeServico, dataTime, nom
                 .then(data => {
                     console.log(data)
                     if (data.success) {
-                        alert(data.message)
+                        alertSuccess(data.message)
                         carregarConteudo("listarServico");
                         // switch (addEditDel) {
                         //     case 'addProprietario':
@@ -437,18 +433,17 @@ function abrirModalJsServico(id, inID, nomeServico, inNomeServico, dataTime, nom
                         ModalInstacia.hide();
                     } else {
                         // addErro()
-                        alert(data.message)
+                        alertError(data.message)
                         ModalInstacia.hide();
                         carregarConteudo("listarServico");
                     }
                 })
-            // .catch(error => {
-            //     botoes.disabled = false;
-            //     ModalInstacia.hide();
-            //     // addErro()
-            //     carregarConteudo("listarServico");
-            //     console.error('Erro na requisição:', error);
-            // });
+            .catch(error => {
+                botoes.disabled = false;
+                ModalInstacia.hide();
+                carregarConteudo("listarServico");
+                console.error('Erro na requisição:', error);
+            });
         }
         formDados.addEventListener('submit', submitHandler);
 
@@ -512,7 +507,7 @@ function abrirModalJsAtendente(id, inID, nomeAtendente, inNomeAtendente, emailAt
                     console.log(data)
                     if (data.success) {
                         carregarConteudo("listarAtendente");
-                        alert(data.message)
+                        alertSuccess(data.success)
                         // switch (addEditDel) {
                         //     case 'addProprietario':
                         //         addOuEditSucesso('Você', 'success', 'adicionou')
@@ -529,18 +524,18 @@ function abrirModalJsAtendente(id, inID, nomeAtendente, inNomeAtendente, emailAt
                         ModalInstacia.hide();
                     } else {
                         // addErro()
-                        alert(data.message);
+                        alertError(data.message);
                         ModalInstacia.hide();
                         carregarConteudo("listarAtendente");
                     }
                 })
-            // .catch(error => {
-            //     botoes.disabled = false;
-            //     ModalInstacia.hide();
-            //     // addErro()
-            //     carregarConteudo("listarServico");
-            //     console.error('Erro na requisição:', error);
-            // });
+            .catch(error => {
+                botoes.disabled = false;
+                ModalInstacia.hide();
+                // addErro()
+                carregarConteudo("listarServico");
+                console.error('Erro na requisição:', error);
+            });
         }
         formDados.addEventListener('submit', submitHandler);
 
@@ -550,4 +545,32 @@ function abrirModalJsAtendente(id, inID, nomeAtendente, inNomeAtendente, emailAt
         ModalInstacia.hide();
     }
 
+}
+
+function alertSuccess (message){
+    Toastify({
+        text: `${message}`,
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "#006A0C",
+        },
+    }).showToast();
+}
+
+function alertError (message){
+    Toastify({
+        text: `${message}`,
+        duration: 3000,
+        close: true,
+        gravity: "top", // `top` or `bottom`
+        position: "right", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: "#910000",
+        },
+    }).showToast();
 }
