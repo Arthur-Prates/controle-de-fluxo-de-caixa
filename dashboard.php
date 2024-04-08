@@ -252,7 +252,7 @@ include_once('navbar.php');
                     <div class="row">
                         <div class="col-6 mb-3 text-center">
                             <h4>Cliente</h4>
-                            <select id="addCliente" name="addCliente" class="form-select"
+                            <select id="addCliente" name="addCliente" class="form-select" required="required"
                                     aria-label="Default select example">
                                 <?php
                                 $pessoa = listarTabelaOrdenada('idcliente,nomeCliente', 'cliente', 'nomeCliente', 'ASC');
@@ -268,7 +268,7 @@ include_once('navbar.php');
                         </div>
                         <div class="col-6 mb-3 text-center">
                             <h4>Serviço</h4>
-                            <select id="addServico" name="addServico" class="form-select"
+                            <select id="addServico" name="addServico" class="form-select" required="required"
                                     aria-label="Default select example">
                                 <?php
                                 $pessoa = listarTabelaOrdenada('idservico,nomeServico', 'servico', 'nomeServico', 'ASC');
@@ -286,13 +286,13 @@ include_once('navbar.php');
                             <h4>Prazo</h4>
                             <div class="row text-center p-0 m-0">
                                 <div class="col-6 ">
-                                    <input type="date" class="form-control text-center" id="addDataInicio"
+                                    <input type="date" class="form-control text-center" id="addDataInicio" required="required"
                                            name="addDataInicio"
                                            value="<?php echo DATAATUAL ?>">
                                     <label for="dataInicio">Início</label>
                                 </div>
                                 <div class="col-6 ">
-                                    <input type="date" class="form-control text-center" id="addDataFinal"
+                                    <input type="date" class="form-control text-center" id="addDataFinal" required="required"
                                            name="addDataFinal"
                                            value="<?php echo DATAATUAL ?>">
                                     <label for="dataFinal">Final</label>
@@ -301,7 +301,7 @@ include_once('navbar.php');
                         </div>
                         <div class="col-6 mb-3 text-center">
                             <h4>Valor</h4>
-                            <input id="addValor" name="addValor" type="number" step="0.010" min="1"
+                            <input id="addValor" name="addValor" type="number" step="0.010" min="1" required="required"
                                    class="form-control text-center"
                                    placeholder="Digite seu valor">
                         </div>
@@ -309,11 +309,11 @@ include_once('navbar.php');
                         <div class="col-6 mb-3 text-center">
                             <h4>Forma de Pagamento</h4>
                             <label class="mt-2">
-                                <input type="radio" name="addTipoPagamento" id="tipoVista">
+                                <input type="radio" name="addTipoPagamento" id="tipoVista" required="required">
                                 À Vista
                             </label>
                             <label class="mt-2">
-                                <input type="radio" name="addTipoPagamento" id="tipoPrazo">
+                                <input type="radio" name="addTipoPagamento" id="tipoPrazo" required="required">
                                 A Prazo
                             </label>
                         </div>
@@ -321,7 +321,7 @@ include_once('navbar.php');
                             <h4 id='nomeEntrada' style="display: none">Entrada</h4>
                             <input name="entrada" id="entrada" type="number" step="0.010" min="1"
                                    class="form-control text-center"
-                                   placeholder="Digite sua entrada" style="display: none">
+                                   placeholder="Digite sua entrada" style="display: none"">
                             <select name="parcela" id="parcela" class="form-select form-select-sm mt-2"
                                     aria-label="Default select example" style="display: none">
                                 <?php
@@ -363,7 +363,7 @@ include_once('navbar.php');
                         <div class="col-6 mb-3 text-center">
                             <h4>Cliente</h4>
                             <input type="text" id="idEditPedido" hidden="hidden">
-                            <select id="editCliente" name="editCliente" class="form-select"
+                            <select id="editCliente" name="editCliente" class="form-select" required="required"
                                     aria-label="Default select example">
                                 <?php
 
@@ -383,7 +383,7 @@ include_once('navbar.php');
                         </div>
                         <div class="col-6 mb-3 text-center">
                             <h4>Serviço</h4>
-                            <select id="editServico" name="editServico" class="form-select"
+                            <select id="editServico" name="editServico" class="form-select" required="required"
                                     aria-label="Default select example">
                                 <?php
                                 $pessoa = listarTabelaOrdenada('idservico,nomeServico', 'servico', 'nomeServico', 'ASC');
@@ -401,7 +401,7 @@ include_once('navbar.php');
                             <h4>Prazo</h4>
                             <div class="row text-center p-0 m-0">
                                 <div class="col-6 ">
-                                    <input type="date" class="form-control text-center" id="editDataInicio"
+                                    <input type="date" class="form-control text-center" id="editDataInicio" required="required"
                                            name="editDataInicio"
                                            value="<?php echo DATAATUAL ?>">
                                     <label for="editDataInicio">Início</label>
@@ -409,7 +409,7 @@ include_once('navbar.php');
                                 <div class="col-6 ">
                                     <input type="date" class="form-control text-center" id="editDataFinal"
                                            name="editDataFinal"
-                                           value="<?php echo DATAATUAL ?>">
+                                           value="<?php echo DATAATUAL ?>" required="required">
                                     <label for="editDataFinal">Final</label>
                                 </div>
                             </div>
@@ -417,24 +417,24 @@ include_once('navbar.php');
                         <div class="col-6 mb-3 text-center">
                             <h4>Valor</h4>
                             <input id="editValor" name="editValor" type="number" step="0.010" min="1"
-                                   class="form-control text-center"
+                                   class="form-control text-center" required="required"
                                    placeholder="Digite seu valor">
                         </div>
 
                         <div class="col-6 mb-3 text-center">
                             <h4>Forma de Pagamento</h4>
                             <label class="mt-2">
-                                <input type="radio" name="editTipoPagamento" id="tipoEditVista">
+                                <input type="radio" name="editTipoPagamento" id="tipoEditVista" required="required">
                                 À Vista
                             </label>
                             <label class="mt-2">
-                                <input type="radio" name="editTipoPagamento" id="tipoEditPrazo">
+                                <input type="radio" name="editTipoPagamento" id="tipoEditPrazo" required="required">
                                 A Prazo
                             </label>
                         </div>
                         <div class="col-6 mb-3 text-center">
                             <h4 id='nomeEditEntrada' style="display: none">Entrada</h4>
-                            <input name="editEntrada" id="editEntrada" type="number" step="0.010" min="1"
+                            <input name="editEntrada" id="editEntrada" type="number" step="0.010"
                                    class="form-control text-center"
                                    placeholder="Digite sua entrada" style="display: none">
                             <select name="editParcela" id="editParcela" class="form-select form-select-sm mt-2"
