@@ -26,7 +26,7 @@ function carregarConteudo(controle) {
         });
 }
 
-function mostrarProcessando(){
+function mostrarProcessando() {
     var divFundoEscuro = document.createElement('div');
     divFundoEscuro.id = 'fundoEscuro';
     divFundoEscuro.style.position = 'fixed';
@@ -210,7 +210,7 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
             inDataEND.value = idDataFinal;
         }
 
-        if (inIdEntrada !== 'nao' || inIdEntrada !== 0 || inIdEntrada !== '') {
+        if (idEntrada !== '') {
             const tipoEditPrazo = document.getElementById('tipoEditPrazo');
             const editParc = document.getElementById('editParcela');
             const editEntra = document.getElementById('editEntrada');
@@ -221,6 +221,15 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
             tipoEditPrazo.checked = true;
 
 
+        }else{
+            const editParc = document.getElementById('editParcela');
+            const editEntra = document.getElementById('editEntrada');
+            const nomeEditEntra = document.getElementById('nomeEditEntrada');
+            const tipoEditVista = document.getElementById('tipoEditVista');
+            editParc.style.display = 'none';
+            nomeEditEntra.style.display = 'none';
+            editEntra.style.display = 'none';
+            tipoEditVista.checked = true;
         }
         const submitHandler = function (event) {
             event.preventDefault();
@@ -236,26 +245,21 @@ function abrirModalJsPedido(id, inID, idCliente, inIdCliente, idAdm, inIdAdm, id
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
+
                     if (data.success) {
                         carregarConteudo("listarPedido");
-                        alertSuccess(data.message)
-                        // switch (addEditDel) {
-                        //     case 'addProprietario':
-                        //         addOuEditSucesso('Você', 'success', 'adicionou')
-                        //         break;
-                        //     case 'editProprietario':
-                        //         addOuEditSucesso('Você', 'info', 'editou')
-                        //         botoes.disabled = false;
-                        //         break;
-                        //     case 'deleteProprietario':
-                        //         addOuEditSucesso('Você', 'success', 'deletou')
-                        //         botoes.disabled = false;
-                        //         break;
-                        // }
+
+                            if (addEditDel==='addPedido'){
+                                alertSuccess(data.message,'Add')
+                            }else if(addEditDel==='editPedido'){
+                                alertSuccess(data.message,'Editar')
+                            }else{
+                                alertSuccess(data.message,'Deletar')
+                            }
+
                         ModalInstacia.hide();
                     } else {
-                        alertError(data.message)
+                        alertError(data.message);
                         ModalInstacia.hide();
                         carregarConteudo("listarPedido");
                     }
@@ -320,35 +324,30 @@ function abrirModalJsCliente(id, inID, nomeCliente, inNomeCliente, contatoClient
 
             const form = event.target;
             const formData = new FormData(form);
-            // if (dataTime !== 'nao') {
-            //     formData.append('dataTime', `${dataTime}`)
-            // }
+
             formData.append('controle', `${addEditDel}`)
             fetch('controle.php', {
                 method: 'POST', body: formData,
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
+
                     if (data.success) {
-                        alertSuccess(data.message)
+
                         carregarConteudo("listarCliente");
-                        // switch (addEditDel) {
-                        //     case 'addProprietario':
-                        //         addOuEditSucesso('Você', 'success', 'adicionou')
-                        //         break;
-                        //     case 'editProprietario':
-                        //         addOuEditSucesso('Você', 'info', 'editou')
-                        //         botoes.disabled = false;
-                        //         break;
-                        //     case 'deleteProprietario':
-                        //         addOuEditSucesso('Você', 'success', 'deletou')
-                        //         botoes.disabled = false;
-                        //         break;
-                        // }
+
+                        if (addEditDel=='addCliente'){
+                            alertSuccess(data.message,'Add')
+                        }else if(addEditDel=='editPedido'){
+                            alertSuccess(data.message,'Editar')
+                        }else{
+                            alertSuccess(data.message,'Deletar')
+                        }
+
+
                         ModalInstacia.hide();
                     } else {
-                        // addErro()
+
                         alertError(data.message)
                         ModalInstacia.hide();
                         carregarConteudo("listarCliente");
@@ -399,37 +398,32 @@ function abrirModalJsServico(id, inID, nomeServico, inNomeServico, dataTime, nom
 
         const submitHandler = function (event) {
             event.preventDefault();
-            // alert('AQUIIIII')
+
             botoes.disabled = true;
 
             const form = event.target;
             const formData = new FormData(form);
-            // if (dataTime !== 'nao') {
-            //     formData.append('dataTime', `${dataTime}`)
-            // }
+
             formData.append('controle', `${addEditDel}`)
             fetch('controle.php', {
                 method: 'POST', body: formData,
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
+
                     if (data.success) {
-                        alertSuccess(data.message)
+
                         carregarConteudo("listarServico");
-                        // switch (addEditDel) {
-                        //     case 'addProprietario':
-                        //         addOuEditSucesso('Você', 'success', 'adicionou')
-                        //         break;
-                        //     case 'editProprietario':
-                        //         addOuEditSucesso('Você', 'info', 'editou')
-                        //         botoes.disabled = false;
-                        //         break;
-                        //     case 'deleteProprietario':
-                        //         addOuEditSucesso('Você', 'success', 'deletou')
-                        //         botoes.disabled = false;
-                        //         break;
-                        // }
+
+                        if (addEditDel=='addServico'){
+                            alertSuccess(data.message,'Add')
+                        }else if(addEditDel=='editServico'){
+                            alertSuccess(data.message,'Editar')
+                        }else{
+                            alertSuccess(data.message,'Deletar')
+                        }
+
+
                         ModalInstacia.hide();
                     } else {
                         // addErro()
@@ -438,12 +432,12 @@ function abrirModalJsServico(id, inID, nomeServico, inNomeServico, dataTime, nom
                         carregarConteudo("listarServico");
                     }
                 })
-            .catch(error => {
-                botoes.disabled = false;
-                ModalInstacia.hide();
-                carregarConteudo("listarServico");
-                console.error('Erro na requisição:', error);
-            });
+                .catch(error => {
+                    botoes.disabled = false;
+                    ModalInstacia.hide();
+                    carregarConteudo("listarServico");
+                    console.error('Erro na requisição:', error);
+                });
         }
         formDados.addEventListener('submit', submitHandler);
 
@@ -490,37 +484,32 @@ function abrirModalJsAtendente(id, inID, nomeAtendente, inNomeAtendente, emailAt
 
         const submitHandler = function (event) {
             event.preventDefault();
-            // alert('AQUIIIII')
+
             botoes.disabled = true;
 
             const form = event.target;
             const formData = new FormData(form);
-            // if (dataTime !== 'nao') {
-            //     formData.append('dataTime', `${dataTime}`)
-            // }
+
             formData.append('controle', `${addEditDel}`)
             fetch('controle.php', {
                 method: 'POST', body: formData,
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
+
                     if (data.success) {
                         carregarConteudo("listarAtendente");
-                        alertSuccess(data.success)
-                        // switch (addEditDel) {
-                        //     case 'addProprietario':
-                        //         addOuEditSucesso('Você', 'success', 'adicionou')
-                        //         break;
-                        //     case 'editProprietario':
-                        //         addOuEditSucesso('Você', 'info', 'editou')
-                        //         botoes.disabled = false;
-                        //         break;
-                        //     case 'deleteProprietario':
-                        //         addOuEditSucesso('Você', 'success', 'deletou')
-                        //         botoes.disabled = false;
-                        //         break;
-                        // }
+
+
+                        if (addEditDel=='addAtendente'){
+                            alertSuccess(data.message,'Add')
+                        }else if(addEditDel=='editAtendente'){
+                            alertSuccess(data.message,'Editar')
+                        }else{
+                            alertSuccess(data.message,'Deletar')
+                        }
+
+
                         ModalInstacia.hide();
                     } else {
                         // addErro()
@@ -529,13 +518,13 @@ function abrirModalJsAtendente(id, inID, nomeAtendente, inNomeAtendente, emailAt
                         carregarConteudo("listarAtendente");
                     }
                 })
-            .catch(error => {
-                botoes.disabled = false;
-                ModalInstacia.hide();
-                // addErro()
-                carregarConteudo("listarServico");
-                console.error('Erro na requisição:', error);
-            });
+                .catch(error => {
+                    botoes.disabled = false;
+                    ModalInstacia.hide();
+                    // addErro()
+                    carregarConteudo("listarServico");
+                    console.error('Erro na requisição:', error);
+                });
         }
         formDados.addEventListener('submit', submitHandler);
 
@@ -547,7 +536,16 @@ function abrirModalJsAtendente(id, inID, nomeAtendente, inNomeAtendente, emailAt
 
 }
 
-function alertSuccess (message){
+function alertSuccess(message, AddEditarDeletar) {
+    if (AddEditarDeletar === 'Add') {
+        AddEditarDeletar = "#006A0C";
+    } else if (AddEditarDeletar === 'Editar') {
+        AddEditarDeletar = "#0DCAF0";
+    }else{
+        AddEditarDeletar = "#dc3545";
+    }
+
+
     Toastify({
         text: `${message}`,
         duration: 3000,
@@ -556,12 +554,12 @@ function alertSuccess (message){
         position: "right", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-            background: "#006A0C",
+            background: AddEditarDeletar,
         },
     }).showToast();
 }
 
-function alertError (message){
+function alertError(message) {
     Toastify({
         text: `${message}`,
         duration: 3000,
